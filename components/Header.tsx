@@ -1,14 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import { Button, buttonVariants } from "./ui/button";
+
+import { Button } from "./ui/button";
 import Link from "next/link";
-import { toast } from "./ui/use-toast";
-import { ToastAction } from "@radix-ui/react-toast";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+
 import { Abril_Fatface } from "next/font/google";
 import { BiMenuAltRight } from "react-icons/bi";
-import { GrClose } from "react-icons/gr";
+
 const abrilFatFace = Abril_Fatface({
   subsets: ["latin"],
   weight: "400",
@@ -17,8 +21,6 @@ const abrilFatFace = Abril_Fatface({
 const introTextStyle = `${abrilFatFace.className} text-5xl px-3 flex flex-col justify-center items-center text-center xl:text-7xl xl:text-left xl:pl-3 md:text-center md:text-7xl`;
 
 function Header() {
-  const [isMenu, SetIsMenu] = useState(false);
-  const [isMenuClose, setIsMenuClose] = useState(false);
   return (
     <header className=" -mt-4 ">
       <div className="flex items-center justify-between   p-4 mt-2 w-full h-24">
@@ -34,36 +36,75 @@ function Header() {
 
         <div className="hidden space-x-3   md:block font-[inter] lg:block xl:block">
           <Button variant={"link"}>
-            <Link href="#">About</Link>
+            <Link href="#" className="text-blue-500">
+              About
+            </Link>
           </Button>
           <Button variant={"link"}>
-            <Link href="#">Get Help</Link>
+            <Link href="#" className="text-blue-500">
+              Get Help
+            </Link>
           </Button>
           <Button variant={"link"}>
-            <Link href="#">Services</Link>
+            <Link href="#" className="text-blue-500">
+              Services
+            </Link>
           </Button>
         </div>
 
         <div className="hidden  md:flex justify-end px-3 space-x-2">
-          <Button asChild>
-            <Link className={buttonVariants({ size: "lg" })} href="/sign-in">
+          <Button asChild variant="default" size="lg">
+            <Link className="font-[inter]" href="/sign-in">
               Login
             </Link>
           </Button>
 
           <Button asChild variant="secondary" size="lg">
-            <Link href="/sign-up">Join Now</Link>
+            <Link className="font-[inter]" href="/sign-up">
+              Join Now
+            </Link>
           </Button>
         </div>
 
-        <Button
-          className="rounded-full bg-transparent md:hidden lg:hidden xl:hidden"
-          onClick={() => SetIsMenu((prev) => !prev)}
-        >
-          <BiMenuAltRight className="text-blue-500 w-10 h-10 hover:text-white" />
-        </Button>
+        {/* Mobile Navigations  */}
+        <div className=" md:hidden font-[inter] lg:hidden xl:hidden">
+          <Popover>
+            <PopoverTrigger>
+              <BiMenuAltRight className="text-blue-500 w-10 h-10 hover:text-white" />
+            </PopoverTrigger>
+            <PopoverContent>
+              <div className="flex flex-col space-y-4 w-full z-10">
+                <Button variant={"link"}>
+                  <Link href="#">About</Link>
+                </Button>
+                <Button variant={"link"}>
+                  <Link href="#">Get Help</Link>
+                </Button>
+                <Button variant={"link"}>
+                  <Link href="#">Services</Link>
+                </Button>
 
-        {isMenu && (
+                <Button asChild variant="default" size="lg">
+                  <Link className="font-[inter]" href="/sign-in">
+                    Login
+                  </Link>
+                </Button>
+
+                <Button asChild variant="secondary" size="lg">
+                  <Link className="font-[inter]" href="/sign-up">
+                    Join Now
+                  </Link>
+                </Button>
+
+                <p className="flex text-center font-[inter] items-center text-sm font-light pr-5 shadow-xl rounded-xl w-fit bg-white italic max-w-3xl p-5 text-[#515153]">
+                  Clicking Login or Join Now means you've accepted our Privacy
+                </p>
+              </div>
+            </PopoverContent>
+          </Popover>
+        </div>
+
+        {/* {isMenu && (
           <div className="w-[75%] md:hidden font-[inter] lg:hidden xl:hidden shadow-md h-full fixed top-0 left-0  bg-slate-200/100 flex-col p-4 justify-center  items-center transition ease-in duration-500">
             <div className="flex flex-col space-y-3 text-gray-900 font-medium ">
               <Button variant={"link"}>
@@ -97,12 +138,12 @@ function Header() {
               </p>
             </div>
           </div>
-        )}
+        )} */}
       </div>
 
       <div className=" bg-white/30 font-[inter] text-gray-500 w-fit flex justify-center items-center rounded-full text-center mx-auto md:mx-auto">
         <p className="px-2 py-3 text-small font-bold">
-          Making it through life's toughest moments together🎉
+          {"Making it through life's toughest moments together🎉"}
         </p>
       </div>
 
