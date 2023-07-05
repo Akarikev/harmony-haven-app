@@ -1,6 +1,5 @@
 import Profile from "@/components/Profile";
 import UserTest from "@/components/UserTest";
-import React from "react";
 
 function page() {
   return (
