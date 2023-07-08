@@ -21,7 +21,7 @@ export default function BasicCard() {
           {/* <button onClick={() => setDark(!darkMode)}>
             {darkMode ? "Light" : "dark"}
           </button> */}
-          <CardContent className="bg-gray-500 w-[300px] h-[300px] mt-10 dark:bg-gray-800 rounded-xl shadow-md "></CardContent>
+          <CardContent className="bg-gray-500 w-[300px] h-[300px] mt-10 dark:bg-gray-800 rounded-xl shadow-zinc-900 shadow-lg border-black "></CardContent>
         </div>
       </Card>
     </div>

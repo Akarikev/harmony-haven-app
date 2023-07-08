@@ -124,9 +124,9 @@ function Header() {
           hidden: { opacity: 0, x: -50 },
           visible: { opacity: 1, x: 0 },
         }}
-        className=" bg-white/30 font-[inter] text-gray-500 w-fit flex justify-center items-center rounded-full text-center mx-auto md:mx-auto"
+        className=" bg-white/30 font-[inter] text-gray-500 w-fit flex justify-center items-center rounded-full text-center mx-auto md:mx-auto shadow-md"
       >
-        <p className="px-2 py-3 text-small font-medium text-gray-600">
+        <p className="px-2 py-3 text-small font-medium text-gray-600 ">
           {"Making it through life's toughest moments together🎉"}
         </p>
       </motion.div>
@@ -167,10 +167,10 @@ function Header() {
                 <br />
                 <Link
                   href="/sign-in"
-                  className="underline transition ease-in duration-200 hover:decoration-wavy"
+                  className="underline  hover:decoration-wavy"
                 >
                   {" "}
-                  {""} Get Started Here 🎉
+                  {""} Get Started Now🎉
                 </Link>
               </p>
             </motion.div>
