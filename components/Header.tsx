@@ -12,18 +12,21 @@ import {
 import { Abril_Fatface } from "next/font/google";
 import { BiMenuAltRight } from "react-icons/bi";
 import { motion } from "framer-motion";
-const abrilFatFace = Abril_Fatface({
+
+export const abrilFatFace = Abril_Fatface({
   subsets: ["latin"],
   weight: "400",
 });
 
-const introTextStyle = `${abrilFatFace.className} text-5xl px-3 flex flex-col justify-center items-center text-center xl:text-7xl xl:text-left xl:pl-3 md:text-center md:text-7xl ]`;
+const introTextStyle = `${abrilFatFace.className} text-5xl px-3 flex flex-col justify-center items-center text-center xl:text-7xl xl:text-left xl:pl-3 md:text-center md:text-7xl `;
 
 function Header() {
   return (
     <header className=" -mt-4 ">
       <div className="flex items-center justify-between   p-4 mt-2 w-full h-24">
         <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-br from-white/90 to-[#0a0a81] rounded-md filter blur-3xl opacity-50 -z-50 " />
+
+        {/* Main header */}
         <Image
           src="/images/harmony_logo.png"
           width={140}
@@ -72,15 +75,21 @@ function Header() {
               <BiMenuAltRight className="text-blue-500 w-10 h-10 hover:text-white" />
             </PopoverTrigger>
             <PopoverContent>
-              <div className="flex flex-col space-y-4 w-full z-10">
+              <div className="flex flex-col space-y-4 w-full z-10 ">
                 <Button variant={"link"}>
-                  <Link href="#">About</Link>
+                  <Link href="#" className="text-gray-600 ">
+                    About
+                  </Link>
                 </Button>
                 <Button variant={"link"}>
-                  <Link href="#">Get Help</Link>
+                  <Link href="#" className="text-gray-600 ">
+                    Get Help
+                  </Link>
                 </Button>
                 <Button variant={"link"}>
-                  <Link href="#">Services</Link>
+                  <Link href="#" className="text-gray-600 ">
+                    Services
+                  </Link>
                 </Button>
 
                 <Button asChild variant="default" size="lg">
@@ -95,7 +104,7 @@ function Header() {
                   </Link>
                 </Button>
 
-                <p className="flex text-center font-[inter] items-center text-sm font-light pr-5 shadow-xl rounded-xl w-fit bg-white italic max-w-3xl p-5 text-[#515153]">
+                <p className="flex text-center font-[inter] items-center text-sm  pr-5 shadow-xl rounded-xl w-fit bg-white/25 italic max-w-3xl p-5 text-gray-600 font-medium">
                   {
                     "By Clicking Login or Join Now means you've accepted our Privacy"
                   }
@@ -110,14 +119,14 @@ function Header() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
-        transition={{ delay: 0.3, duration: 0.7 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
         variants={{
           hidden: { opacity: 0, x: -50 },
           visible: { opacity: 1, x: 0 },
         }}
         className=" bg-white/30 font-[inter] text-gray-500 w-fit flex justify-center items-center rounded-full text-center mx-auto md:mx-auto"
       >
-        <p className="px-2 py-3 text-small font-bold">
+        <p className="px-2 py-3 text-small font-medium text-gray-600">
           {"Making it through life's toughest moments together🎉"}
         </p>
       </motion.div>
@@ -149,7 +158,7 @@ function Header() {
                 hidden: { opacity: 0, x: -50 },
                 visible: { opacity: 1, x: 0 },
               }}
-              className="flex flex-col font-[inter] text-lg mt-12"
+              className="flex flex-col font-[inter] mx-auto text-lg mt-12"
             >
               <p>
                 {
@@ -157,8 +166,8 @@ function Header() {
                 }
                 <br />
                 <Link
-                  href={"/sign-in"}
-                  className="underline hover:transition ease-in duration-200 hover:decoration-wavy"
+                  href="/sign-in"
+                  className="underline transition ease-in duration-200 hover:decoration-wavy"
                 >
                   {" "}
                   {""} Get Started Here 🎉
@@ -184,7 +193,7 @@ function Header() {
             height={870}
             alt="harmony logo"
             priority
-            className="object-contain "
+            className="object-contain w-full h-full"
           />
         </motion.div>
       </motion.div>
