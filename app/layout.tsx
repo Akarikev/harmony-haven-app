@@ -3,7 +3,9 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Head from "next/head";
 import { Toaster } from "@/components/ui/toaster";
+import ThemeProvider  from "@/components/ui/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata = {
   title: "Harmony Haven Ghana",
@@ -40,9 +42,12 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <ClerkProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+       
           {children}
 
           <Toaster />
+       </ThemeProvider>
         </ClerkProvider>
       </body>
     </html>
