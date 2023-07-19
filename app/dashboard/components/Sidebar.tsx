@@ -42,6 +42,14 @@ export default function Sidebar({children} : SidebarProps)  {
     ],
     [pathname]
   );
+
+  // Add the default selection for the "Home" route when the user logs in
+  const defaultActiveRoute = routes.find((item) => item.label === "Home");
+  if (!routes.some((item) => item.active)) {
+    if (defaultActiveRoute) {
+      defaultActiveRoute.active = true;
+    }
+  }
   
   return (
     <div className="flex h-full ">
