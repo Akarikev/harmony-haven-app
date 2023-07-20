@@ -1,4 +1,4 @@
-import Notes from "../components/Notes"
+import Notes from "../components/Community"
 export default  function page () {
 
     

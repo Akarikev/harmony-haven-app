@@ -1,18 +1,25 @@
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+
 import { getFirestore } from "firebase/firestore";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyDdb7yXoUIHLnk4Zk_TpZ8oaVp8HrDoJ-I",
-  
-    authDomain: "harmony-haven-ba98f.firebaseapp.com",
-    projectId: "harmony-haven-ba98f",
-    storageBucket: "harmony-haven-ba98f.appspot.com",
-    messagingSenderId: "481752684034",
-    appId: "1:481752684034:web:ebfcc69314c400c28c791b",
-    measurementId: "G-X4BJHRYVY4"
-  };
+  apiKey: "AIzaSyC6kX4ElE8YxNu4bVjLIlP7Sa-wn3L9EWM",
+  authDomain: "harmony-haven-38bf0.firebaseapp.com",
+  projectId: "harmony-haven-38bf0",
+  storageBucket: "harmony-haven-38bf0.appspot.com",
+  messagingSenderId: "329930341222",
+  appId: "1:329930341222:web:7064015f47bdaa9d12e6a7",
+  measurementId: "G-5F3J9ZEZ8X"
+};
 
-  const app = initializeApp(firebaseConfig); 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
   
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);

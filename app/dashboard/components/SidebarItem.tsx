@@ -6,7 +6,7 @@ import { twMerge } from "tailwind-merge";
 interface SideBarItemProps {
   icon: IconType;
   label: string;
-  active: boolean;
+  active: boolean ;
   href: string;
 }
 
@@ -39,7 +39,7 @@ export default function SidebarItem ({
       )}
     >
       <Icon size={26} />
-      <p className="truncate  w-full">{label}</p>
+      <p className="truncate w-full">{label}</p>
     </Link>
   );
 };

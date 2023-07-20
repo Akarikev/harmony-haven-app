@@ -11,16 +11,16 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className={inter.className} suppressHydrationWarning>
+    
       <div className="h-screen ">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+       
           {/* Move the ModeToggle component inside the Sidebar */}
-          <Sidebar>
+          <Sidebar >
             {/* <Modetoggle /> */}
             {children}
           </Sidebar>
-        </ThemeProvider>
+  
       </div>
-    </html>
+    
   );
 }

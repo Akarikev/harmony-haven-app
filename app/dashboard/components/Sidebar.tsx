@@ -6,7 +6,7 @@ import { HiHome } from "react-icons/hi";
 
 // import { CgProfile } from "react-icons/cg";
 import {GiMeditation, GiNotebook} from "react-icons/gi"
-
+import {CgCommunity} from "react-icons/cg"
 import Box from "./Box";
 import SidebarItem from "./SidebarItem";
 import ModeToggle  from "./ModeToggle";
@@ -28,10 +28,10 @@ export default function Sidebar({children} : SidebarProps)  {
         href: "/dashboard/Home",
       },
       {
-        icon: GiNotebook,
-        label: "Notes",
-        active: pathname === "/dashboard/Notes",
-        href: "/dashboard/Notes",
+        icon: CgCommunity,
+        label: "Communities",
+        active: pathname === "/dashboard/Community",
+        href: "/dashboard/Community",
       },
       {
         icon: GiMeditation,

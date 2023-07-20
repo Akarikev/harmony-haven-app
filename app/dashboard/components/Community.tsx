@@ -4,7 +4,8 @@ import { collection, getDocs, addDoc } from "firebase/firestore";
 import { useEffect, useState, FormEvent } from "react";
 import { db } from "@/store/Firestore_d";
 import { getAuth, signInWithCustomToken } from "firebase/auth";
-import { useAuth, useUser } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
+
 type Note = {
   id: string;
   title: string;
@@ -12,16 +13,14 @@ type Note = {
   created_at: string;
 };
 
-export default function Notes() {
+
+
+export default function Community() {
   const [data, setData] = useState<Note[]>([]);
   const [title, setTitle] = useState<string>("");
   const [text, setText] = useState<string>("");
 
-  // async function getToken(options: { template: string }): Promise<string> {
-  //   const auth = getAuth();
-  //   const token = await signInWithCustomToken(auth, options.template);
-  //   return token;
-  // }
+
 
   const { getToken } = useAuth();
 
@@ -31,16 +30,15 @@ export default function Notes() {
   const submitToFireStore = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const auth = getAuth()
-    const tokenClerk = await getToken({ template: "integration_firebase" });
-     await signInWithCustomToken(auth, tokenClerk);
-
+    const token = await getToken({ template: "integration_firebase" });
+    await signInWithCustomToken(auth, token);
 
     const created_at = new Date().toISOString();
 
     
 
     try {
-      const docRef = await addDoc(collection(db, "notes"), {
+      const docRef = await addDoc(collection(db, "community"), {
         title,
         text,
         created_at,
@@ -67,7 +65,7 @@ export default function Notes() {
   useEffect(() => {
     // Fetch data from Firebase on component mount
     const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, "notes"));
+      const querySnapshot = await getDocs(collection(db, "community"));
       const newData: Note[] = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -81,6 +79,7 @@ export default function Notes() {
   return (
     <div>
       <div>
+        <h2>Welcome to Communities!👨‍👩‍👧‍👧 Here you post to the community about your day and how youre feeling! </h2>
         <form onSubmit={submitToFireStore}>
           <input
             type="text"
@@ -112,7 +111,5 @@ export default function Notes() {
     </div>
   );
 }
-function getToken(arg0: { template: string; }) {
-  throw new Error("Function not implemented.");
-}
+
 
