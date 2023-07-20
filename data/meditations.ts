@@ -1,4 +1,4 @@
-import { ImageSourcePropType } from 'react-native'
+
 import Image  from 'next/image'
 export interface Meditation {
   /* Unique id of the meditation */
@@ -12,7 +12,7 @@ export interface Meditation {
   /* The order of the meditation in the list */
   order: number
   /* URL of the image to show */
-  image: ImageSourcePropType
+  image: typeof Image
   /* URI of the audio file */
   uri: string
   /* Track ID from the back-end */
@@ -31,7 +31,7 @@ export const popular: Meditation[] = [
     subtitle: 'Love and Peace',
     time: 2,
     uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/17.mp3',
-    image: require('../assets/images/meditate6.jpg'),
+    image: ('../assets/images/meditate6.jpg'),
   },
   {
     id: 'ff171f80-5960-41e7-965c-1f9bcf31e02d',

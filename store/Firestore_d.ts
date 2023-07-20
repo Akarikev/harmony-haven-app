@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    apiKey: "AIzaSyDdb7yXoUIHLnk4Zk_TpZ8oaVp8HrDoJ-I",
   
     authDomain: "harmony-haven-ba98f.firebaseapp.com",
     projectId: "harmony-haven-ba98f",

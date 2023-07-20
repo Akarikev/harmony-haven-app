@@ -3,7 +3,8 @@
 import { collection, getDocs, addDoc } from "firebase/firestore";
 import { useEffect, useState, FormEvent } from "react";
 import { db } from "@/store/Firestore_d";
-
+import { getAuth, signInWithCustomToken } from "firebase/auth";
+import { useAuth, useUser } from "@clerk/nextjs";
 type Note = {
   id: string;
   title: string;
@@ -15,10 +16,24 @@ export default function Notes() {
   const [data, setData] = useState<Note[]>([]);
   const [title, setTitle] = useState<string>("");
   const [text, setText] = useState<string>("");
-  
+
+  // async function getToken(options: { template: string }): Promise<string> {
+  //   const auth = getAuth();
+  //   const token = await signInWithCustomToken(auth, options.template);
+  //   return token;
+  // }
+
+  const { getToken } = useAuth();
+
+
+
 
   const submitToFireStore = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const auth = getAuth()
+    const tokenClerk = await getToken({ template: "integration_firebase" });
+     await signInWithCustomToken(auth, tokenClerk);
+
 
     const created_at = new Date().toISOString();
 
@@ -97,3 +112,7 @@ export default function Notes() {
     </div>
   );
 }
+function getToken(arg0: { template: string; }) {
+  throw new Error("Function not implemented.");
+}
+
