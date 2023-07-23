@@ -5,8 +5,7 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+
 import { abrilFatFace } from "./Header";
 import { useState } from "react";
 const introTextStyle = `${abrilFatFace.className} text-4xl text-gray-500 text-center underline decoration-wavy text-[#0a0a81] pt-2 md:text-5xl lg:text-7xl lg:text-start lg:ml-2`;

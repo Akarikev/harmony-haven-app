@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.21.13",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@firebase/auth": "^1.0.0",
@@ -23,6 +22,7 @@
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
+    "chart.js": "^4.3.0",
     "class-variance-authority": "^0.6.1",
     "clsx": "^1.2.1",
     "components": "^0.1.0",
@@ -36,6 +36,7 @@
     "node-fetch": "^3.3.1",
     "postcss": "8.4.24",
     "react": "18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
     "styled": "^1.0.0",

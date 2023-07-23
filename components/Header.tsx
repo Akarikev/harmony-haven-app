@@ -58,14 +58,14 @@ function Header() {
         </div>
 
         <div className="hidden  md:flex justify-end px-3 space-x-2">
-          <Button asChild variant="default" size="lg">
-            <Link className="font-[inter]" href="/sign-in">
+          <Button asChild variant="default" size="lg" className = ''>
+            <Link className="font-[inter]" href="/dashboard">
               Login
             </Link>
           </Button>
 
           <Button asChild variant="secondary" size="lg">
-            <Link className="font-[inter]" href="/sign-up">
+            <Link className="font-[inter]" href="/dashboard">
               Join Now
             </Link>
           </Button>
@@ -96,13 +96,13 @@ function Header() {
                 </Button>
 
                 <Button asChild variant="default" size="lg">
-                  <Link className="font-[inter]" href="/sign-in">
+                  <Link className="font-[inter]" href="/dashboard">
                     Login
                   </Link>
                 </Button>
 
                 <Button asChild variant="secondary" size="lg">
-                  <Link className="font-[inter]" href="/sign-up">
+                  <Link className="font-[inter]" href="/dashboard">
                     Join Now
                   </Link>
                 </Button>
