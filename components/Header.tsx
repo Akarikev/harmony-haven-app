@@ -93,13 +93,13 @@ function Header() {
                 </Button>
 
                
-                  <Link className={buttonVariants({ variant: "default" })} href="/dashboard">
+                  <Link className={buttonVariants({ variant: "default" })} href="/login">
                     Login
                   </Link>
               
 
               
-                  <Link className={buttonVariants({ variant: "default" })} href="/dashboard">
+                  <Link className={buttonVariants({ variant: "default" })} href="/login">
                     Join Now
                   </Link>
                 

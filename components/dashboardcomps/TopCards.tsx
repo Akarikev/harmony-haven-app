@@ -8,7 +8,7 @@ const TopCards = () => {
 
     const  quotes =  useQuote()
   return (
-    <div className='grid lg:grid-cols-5 gap-4 p-4'>
+    <div className='grid lg:grid-cols-5 gap-4 p-4' suppressHydrationWarning>
         <div className='lg:col-span-2 col-span-1 bg-white flex justify-between w-full border p-2 rounded-lg shadow-lg'>
             
             <div className='flex flex-col w-full pb-2'>
