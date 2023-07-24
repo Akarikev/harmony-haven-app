@@ -19,6 +19,8 @@ interface sideBarProps {
 
 
 
+
+
 const Sidebar = ({ children }:sideBarProps) => {
 
   const pathname = usePathname(); 
@@ -32,7 +34,7 @@ const Sidebar = ({ children }:sideBarProps) => {
       },
       {
         icon: CgCommunity,
-        label: "Communities",
+        label: "Community",
         active: pathname === "/dashboard/community",
         href: "/dashboard/community",
       },
@@ -48,10 +50,10 @@ const Sidebar = ({ children }:sideBarProps) => {
 
 
   return (
-    <div className='flex'>
+    <div >
       <div className='fixed w-20 h-screen p-4 bg-white border-r-[1px] flex flex-col justify-between'>
         {routes.map((item) => (
-        <SidebarItem key = {item.href} {...item}/>
+        <SidebarItem key = {item.label} {...item}/>
         ))}
       </div>
       <main className='ml-20 w-full'>{children}</main>
