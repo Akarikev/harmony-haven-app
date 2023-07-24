@@ -15,7 +15,7 @@ export default function BasicCard() {
   return (
     <div className={` ${darkMode && "dark"}`}>
       <Card className={`bg-slate-200 dark:bg-slate-800`}>
-        <h1 className={introTextStyle}>features</h1>
+        <h1 className= "text-4xl  text-center underline decoration-wavy text-[#0a0a81] pt-2 md:text-5xl lg:text-7xl lg:text-start lg:ml-2">features</h1>
         <div className="flex justify-center items-center">
           {/* <button onClick={() => setDark(!darkMode)}>
             {darkMode ? "Light" : "dark"}

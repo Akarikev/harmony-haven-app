@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import Link from "next/link";
 import {
   Popover,
@@ -21,6 +21,8 @@ export const abrilFatFace = Abril_Fatface({
 
 const introTextStyle = `${abrilFatFace.className} text-5xl px-3 flex flex-col justify-center items-center text-center xl:text-7xl xl:text-left xl:pl-3 md:text-center md:text-7xl `;
 
+
+
 function Header() {
   return (
     <header className=" -mt-4 ">
@@ -28,84 +30,79 @@ function Header() {
         <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-br from-white/90 to-[#0a0a81] rounded-md filter blur-3xl opacity-50 -z-50 " />
 
         {/* Main header */}
-        <Image
-          src="/images/harmony_logo.png"
-          width={140}
-          height={10}
-          alt="harmony logo"
-          priority
-          className="object-contain "
-        />
+       
+        <h2 className= "text-[#0a0a81] scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0" >
+     Harmony Haven
+    </h2>
 
         <div className="hidden space-x-3   md:block font-[inter] lg:block xl:block">
           <Button variant={"link"}>
-            <Link href="#" className="text-blue-500">
+            <Link href="#" className="text-[#0a0a81]">
               About
             </Link>
           </Button>
           <Button variant={"link"}>
-            <Link href="#" className="text-blue-500">
+            <Link href="#" className="text-[#0a0a81]">
               Get Help
             </Link>
           </Button>
           <Button variant={"link"}>
-            <Link href="#" className="text-blue-500">
+            <Link href="#" className="text-[#0a0a81]">
               Services
             </Link>
           </Button>
 
-       
+      
         </div>
 
         <div className="hidden  md:flex justify-end px-3 space-x-2">
-          <Button asChild variant="default" size="lg" className = ''>
-            <Link className="font-[inter]" href="/dashboard">
+       
+            <Link className={buttonVariants({ variant: "default" })} href="/login">
               Login
             </Link>
-          </Button>
+     
 
-          <Button asChild variant="secondary" size="lg">
-            <Link className="font-[inter]" href="/dashboard">
+            <Link className={buttonVariants({ variant: "default" })} href="/login">
               Join Now
             </Link>
-          </Button>
+          
         </div>
 
         {/* Mobile Navigations  */}
         <div className=" md:hidden font-[inter] lg:hidden xl:hidden">
           <Popover>
             <PopoverTrigger>
-              <BiMenuAltRight className="text-blue-500 w-10 h-10 hover:text-white" />
+              <BiMenuAltRight className="text-[#0a0a81] w-10 h-10 hover:text-white" />
             </PopoverTrigger>
             <PopoverContent>
               <div className="flex flex-col space-y-4 w-full z-10 ">
                 <Button variant={"link"}>
-                  <Link href="#" className="text-gray-600 ">
+                  <Link href="#" className="text-[#0a0a81] ">
                     About
                   </Link>
                 </Button>
                 <Button variant={"link"}>
-                  <Link href="#" className="text-gray-600 ">
+                  <Link href="#" className="text-[#0a0a81] ">
                     Get Help
                   </Link>
                 </Button>
                 <Button variant={"link"}>
-                  <Link href="#" className="text-gray-600 ">
+                  <Link href="#" className="text-[#0a0a81] ">
                     Services
                   </Link>
                 </Button>
 
-                <Button asChild variant="default" size="lg">
-                  <Link className="font-[inter]" href="/dashboard">
+               
+                  <Link className={buttonVariants({ variant: "default" })} href="/dashboard">
                     Login
                   </Link>
-                </Button>
+              
 
-                <Button asChild variant="secondary" size="lg">
-                  <Link className="font-[inter]" href="/dashboard">
+              
+                  <Link className={buttonVariants({ variant: "default" })} href="/dashboard">
                     Join Now
                   </Link>
-                </Button>
+                
 
                 <p className="flex text-center font-[inter] items-center text-sm  pr-5 shadow-xl rounded-xl w-fit bg-white/25 italic max-w-3xl p-5 text-gray-600 font-medium">
                   {
@@ -147,7 +144,7 @@ function Header() {
       >
         <div className={introTextStyle}>
           <h1 className="text-[#946e21] font-medium ">
-            <span className="text-blue-500   ">Your Mental Health is Your</span>
+            <span className="text-[#0a0a81]   ">Your Mental Health is Your</span>
             <br />
             <span className="underline decoration-wavy text-center">
               Wealth
@@ -169,7 +166,7 @@ function Header() {
                 }
                 <br />
                 <Link
-                  href="/sign-in"
+                  href="/login"
                   className="underline  hover:decoration-wavy"
                 >
                   {" "}

@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 
 @layer base {
   :root {
@@ -74,5 +76,19 @@
   }
   body {
     @apply font-[inter] text-foreground;
+
+    font-family: 'Inter', sans-serif;
+
   }
+}
+
+
+
+h2,h1, h3{
+  font-family: 'Abril Fatface', cursive;
+}
+
+
+Button {
+  font-family: 'Inter', sans-serif;
 }

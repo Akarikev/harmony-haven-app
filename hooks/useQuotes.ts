@@ -1,4 +1,5 @@
 import quotes from '../data/quotes'
+import { useMemo } from 'react';
 
 export const useQuote = () => {
   const max = quotes.length - 1

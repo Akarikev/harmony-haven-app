@@ -1,6 +1,6 @@
-import BarChart from "@/components/DashboardComponents/BarChart";
-import Header from "@/components/DashboardComponents/Header";
-import TopCards from "@/components/DashboardComponents/TopCards";
+import BarChart from "@/components/dashboardcomps/BarChart";
+import Header from "@/components/dashboardcomps/Header";
+import TopCards from "@/components/dashboardcomps/TopCards";
 
 
 

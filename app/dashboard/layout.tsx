@@ -1,4 +1,4 @@
-import Sidebar from "@/components/DashboardComponents/Sidebar";
+import Sidebar from "@/components/dashboardcomps/Sidebar";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
