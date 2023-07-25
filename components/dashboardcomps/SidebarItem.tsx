@@ -3,7 +3,7 @@ import { FC } from "react";
 import { IconType } from "react-icons";
 import { twMerge } from "tailwind-merge";
 
-import { SideBarItemProps } from "@/routes/route";
+import { SideBarItemProps } from "@/lib/routes/route";
 import {
   Tooltip,
   TooltipContent,
@@ -24,7 +24,7 @@ const SideBarItem: FC<SideBarItemProps> = ({
         className={twMerge(
           `
        
-          p-2 rounded-lg text-center  bg-gray-100 hover:text-white hover:bg-purple-800 cursor-pointer my-4 inline-block shadow-md transition ease font-[inter] text-zinc-800
+          p-2 rounded-lg text-center  bg-gray-100 hover:text-white hover:bg-purple-800 cursor-pointer my-4 inline-block shadow-md transition ease font-[inter] text-zinc-700 text-bold
   `,
           active &&
             "bg-purple-800 hover:text-black hover:bg-gray-200 shadow-md text-white"
@@ -34,7 +34,7 @@ const SideBarItem: FC<SideBarItemProps> = ({
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                <Icon size={30} className="text-center flex items-center" />
+                <Icon size={25} className="text-center flex items-center" />
               </TooltipTrigger>
               <TooltipContent>
                 <p className="text-xs text-zinc-500 font-[inter]">{label}</p>
