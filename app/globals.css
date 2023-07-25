@@ -76,20 +76,12 @@
   body {
     @apply font-[inter] text-foreground;
     /* overflow-x: hidden; */
-
-    font-family: "Inter", sans-serif;
   }
 }
 
-h2,
-h1,
-h3 {
-  font-family: "Abril Fatface";
-}
-
-Button {
+/* Button {
   font-family: "Inter", sans-serif;
-}
+} */
 
 Sidebar {
   margin: 0% 10%;

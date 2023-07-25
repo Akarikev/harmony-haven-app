@@ -1,30 +1,24 @@
-'use client'
+"use client";
 
-import React, { useMemo } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { RxSketchLogo, RxDashboard, RxPerson } from 'react-icons/rx';
-import { HiHome, HiOutlineShoppingBag } from 'react-icons/hi';
-import { FiSettings } from 'react-icons/fi';
+import React, { useMemo } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { RxSketchLogo, RxDashboard, RxPerson } from "react-icons/rx";
+import { HiHome, HiOutlineShoppingBag } from "react-icons/hi";
+import { FiSettings } from "react-icons/fi";
 
-import {CgCommunity} from 'react-icons/cg'
-import {BiHomeHeart} from 'react-icons/bi'
-import { usePathname } from 'next/navigation';
-import {FaNoteSticky} from 'react-icons/fa6'
-import SidebarItem from './SidebarItem';
+import { CgCommunity } from "react-icons/cg";
+import { BiHomeHeart } from "react-icons/bi";
+import { usePathname } from "next/navigation";
+import { FaNoteSticky } from "react-icons/fa6";
+import SidebarItem from "./SidebarItem";
 interface sideBarProps {
-    children: React.ReactNode,
+  children: React.ReactNode;
 }
 
-
-
-
-
-
-const Sidebar = ({ children }:sideBarProps) => {
-
-  const pathname = usePathname(); 
-  const routes  = useMemo(
+const Sidebar = ({ children }: sideBarProps) => {
+  const pathname = usePathname();
+  const routes = useMemo(
     () => [
       {
         icon: BiHomeHeart,
@@ -48,15 +42,14 @@ const Sidebar = ({ children }:sideBarProps) => {
     [pathname]
   );
 
-
   return (
-    <div >
-      <div className='fixed w-20 h-screen p-4 bg-white border-r-[1px] flex flex-col justify-between'>
+    <div>
+      <div className="fixed w-20  h-screen p-4 bg-white border-r-[1px] flex flex-col justify-between">
         {routes.map((item) => (
-        <SidebarItem key = {item.label} {...item}/>
+          <SidebarItem key={item.label} {...item} />
         ))}
       </div>
-      <main className='ml-20 w-full'>{children}</main>
+      <main className="ml-20 ">{children}</main>
     </div>
   );
 };

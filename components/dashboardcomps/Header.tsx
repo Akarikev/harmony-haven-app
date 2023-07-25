@@ -14,7 +14,7 @@ const Header = () => {
   console.log(user);
   return (
     <div className="flex justify-between px-4 pt-4">
-      <h2 className="scroll-m-20 border-b pb-2 text-xl font-semibold tracking-tight transition-colors first:mt-0 md:text-3xl text-center md:text-start text-[#0a0a81]">
+      <h2 className="scroll-m-20 font-bold border-b pb-2 text-lg  tracking-tight transition-colors first:mt-0 md:text-3xl text-center md:text-start text-[#55558b] font-[inter]">
         Hello, 👋{!user ? "" : user.displayName} How is it going today?
       </h2>
 

@@ -10,30 +10,38 @@ function Quotes() {
   const randomQuotes = useRandomQuotes(8);
 
   return (
-    <div className="w-full">
+    <div className="w-full mt-4">
       <Wrapper suppressHydrationWarning>
-        <h3 className="text-2xl font-bold mx-auto text-[#0a0a81] pl-3">
-          Popular{" "}
-          <span className="underline font-extrabold underline-offset-2 text-3xl ">
-            Quotes
-          </span>
-          , to get you going 🎉
+        <h3 className="text-md font-bold mx-auto text-zinc-600 pl-3 text-center md:text-3xl md:text-start">
+          Motivational Cards 💪
         </h3>
         <Splide
           options={{
-            perPage: 4,
+            perPage: 3,
             arrows: false,
-            pagination: true,
+            pagination: false,
             drag: "free",
             gap: "5rem",
             autoplay: true,
+
+            breakpoints: {
+              640: {
+                perPage: 1,
+                width: 600,
+                gap: "2rem",
+              },
+            },
           }}
+          className="mt-2  px-2 lg:px-0"
         >
           {randomQuotes.map((quoteItem: quoteType) => {
             return (
               <SplideSlide key={quoteItem.author}>
-                <Card className="font-[inter] shadow-md hidden md:block md:mx-auto  ">
-                  <blockquote className="text-zinc-200 leading-4 px-2 [&:not(:first-child)]:mt-6">
+                <Card
+                  className="font-[inter] shadow-md  lg:mx-auto lg:block 
+ "
+                >
+                  <blockquote className="text-zinc-700 leading-4 px-2 [&:not(:first-child)]:mt-6">
                     {quoteItem.text}
                   </blockquote>
 
@@ -42,13 +50,48 @@ function Quotes() {
                     -{quoteItem.author}
                   </h5>
 
-                  <Gradient />
+                  <Gradient className="absolute top-0 left-0  bg-gradient-to-br from-white/90 to-[#0a0a81] rounded-md filter blur-3xl opacity-50 -z-50" />
                 </Card>
               </SplideSlide>
             );
           })}
         </Splide>
       </Wrapper>
+
+      {/* Mobile view */}
+
+      {/* <Splide
+        options={{
+          perPage: 2,
+          arrows: false,
+          pagination: false,
+          drag: "free",
+          gap: "2rem",
+          direction: "ttb",
+          wheel: true,
+
+          focus: "center",
+        }}
+      >
+        {randomQuotes.map((quoteItem: quoteType) => {
+          return (
+            <SplideSlide key={quoteItem.author}>
+              <Card className="font-[inter] shadow-md  md:hidden  h-10 ">
+                <blockquote className="text-zinc-200 leading-4 px-2 [&:not(:first-child)]:mt-6">
+                  {quoteItem.text}
+                </blockquote>
+
+                <h5 className="text-zinc-600  flex justify-center items-center mt-16">
+                  {" "}
+                  -{quoteItem.author}
+                </h5>
+
+                <Gradient />
+              </Card>
+            </SplideSlide>
+          );
+        })}
+      </Splide> */}
     </div>
   );
 }
@@ -86,7 +129,6 @@ const Gradient = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(16, 1, 83, 0.774));
 `;
 
 export default Quotes;
