@@ -14,6 +14,7 @@ import {
 import { Button } from "./ui/button";
 import { useToast } from "./ui/use-toast";
 import { ToastAction } from "@radix-ui/react-toast";
+import { Mail } from "lucide-react";
 
 function LoginPage() {
   const router = useRouter();
@@ -23,6 +24,11 @@ function LoginPage() {
     try {
       const res = await signInWithPopup(auth, provider);
       if (res.user) {
+        toast({
+          title: "Great!",
+          description: "Successfully logged in!🎉",
+          action: <ToastAction altText="Try again">Please wait</ToastAction>,
+        });
         console.log(res.user.uid);
         router.push("/dashboard");
       }
@@ -37,8 +43,18 @@ function LoginPage() {
     }
   };
   return (
-    <div>
-      <Button onClick={signInWithGoogle}>Login with Google</Button>
+    <div suppressHydrationWarning>
+      <div className="flex justify-center flex-col items-center min-h-screen">
+        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl uppercase text-center mb-8 leading-3 ">
+          {" "}
+          Login with Google to continue to{" "}
+          <span className="underline text-cyan-500">Harmony Haven</span>
+        </h1>
+        <Button onClick={signInWithGoogle}>
+          <Mail className="mr-2 h-4 w-4 font-[inter]" />
+          Login with Google
+        </Button>
+      </div>
     </div>
   );
 }
