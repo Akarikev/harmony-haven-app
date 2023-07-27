@@ -30,7 +30,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ content }) => {
       <input
         type="text"
         placeholder="Search for an exercise."
-        className="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
+        className="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300 shadow-md"
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       <div className="mt-4">

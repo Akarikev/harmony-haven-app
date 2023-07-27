@@ -13,6 +13,8 @@ export default function Home() {
       {/* Features */}
 
       <Features />
+
+      
     </div>
   );
 }

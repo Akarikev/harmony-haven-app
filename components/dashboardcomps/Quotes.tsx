@@ -12,7 +12,7 @@ function Quotes() {
   return (
     <div className="w-full mt-4">
       <Wrapper suppressHydrationWarning>
-        <h3 className="text-md font-bold mx-auto text-zinc-600 pl-3 text-center md:text-3xl md:text-start">
+        <h3 className="pl-3 mx-auto font-bold text-center text-md text-zinc-600 md:text-3xl md:text-start">
           Motivational Cards 💪
         </h3>
         <Splide
@@ -23,7 +23,8 @@ function Quotes() {
             drag: "free",
             gap: "5rem",
             autoplay: true,
-
+            rewind: true,
+            type   : 'loop',
             breakpoints: {
               640: {
                 perPage: 1,
@@ -32,7 +33,7 @@ function Quotes() {
               },
             },
           }}
-          className="mt-2  px-2 lg:px-0"
+          className="px-2 mt-2 lg:px-0"
         >
           {randomQuotes.map((quoteItem: quoteType) => {
             return (
@@ -45,7 +46,7 @@ function Quotes() {
                     {quoteItem.text}
                   </blockquote>
 
-                  <h5 className="text-zinc-600  flex justify-center items-center mt-16">
+                  <h5 className="flex items-center justify-center mt-16 text-zinc-600">
                     {" "}
                     -{quoteItem.author}
                   </h5>
@@ -81,7 +82,7 @@ function Quotes() {
                   {quoteItem.text}
                 </blockquote>
 
-                <h5 className="text-zinc-600  flex justify-center items-center mt-16">
+                <h5 className="flex items-center justify-center mt-16 text-zinc-600">
                   {" "}
                   -{quoteItem.author}
                 </h5>
