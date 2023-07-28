@@ -7,6 +7,18 @@ import { FormEvent, useState } from "react";
 import { db } from "@/config/Firestore_d";
 import { toast } from "../ui/use-toast";
 import { ToastAction } from "@radix-ui/react-toast";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { useForm } from "react-hook-form";
 
 type Notes = {
   id: string;
@@ -15,15 +27,43 @@ type Notes = {
   created_at: string;
 };
 
+interface NoteInteface {}
+
+// const formSchema = z.object({
+//   title: z.string().min(2, {
+//     message: "This is required.",
+//   }),
+//   text: z.string().min(4, {
+//     message: "This is required",
+//   }),
+// });
+
 export function NotesForm() {
   const [data, setData] = useState<Notes[]>([]);
   const [title, setTitle] = useState<string>("");
   const [text, setText] = useState<string>("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      text: "",
+      title: "",
+    },
+  }); //enforcing validations
 
-  const sendToDB = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const sendToDB = async () => {
+    //date note was created by the user
+    const created_at = new Date().toLocaleString("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    });
 
-    const created_at = new Date().toISOString();
     try {
       const docRef = await addDoc(collection(db, "notes"), {
         title,
@@ -61,22 +101,53 @@ export function NotesForm() {
     }
   };
   return (
-    <div className="mt-6 border shadow-lg p-4 rounded-lg">
+    <div
+      className="mt-6 border shadow-lg p-4 rounded-lg"
+      suppressHydrationWarning
+    >
       <h1 className="text-center text-2xl uppercase font-bold text-muted-foreground">
         Write Notes :
       </h1>
-      <form onSubmit={sendToDB} className="grid w-full gap-2 mt-4">
+
+      <form
+        onSubmit={handleSubmit(sendToDB)}
+        className="grid w-full gap-2 mt-4"
+      >
         <Input
           type="text"
-          placeholder="Note/Journel title"
+          placeholder="Note/Journal title"
           value={title}
+          {...register("title", {
+            required:
+              "Hey, this is a required field, maybe you forgot to add it",
+            minLength: {
+              value: 4,
+              message: "Title should be at least 4 characters long.",
+            },
+          })}
           onChange={(e) => setTitle(e.target.value)}
+          className={errors.title ? "border-red-500" : ""}
         />
+        <p className="text-red-300 text-muted-foreground">
+          {errors.title?.message}
+        </p>
+
         <Textarea
           placeholder="Type your message here."
           value={text}
+          {...register("text", {
+            required: "Hey!, This is also required, did you forget to add it?",
+            minLength: {
+              value: 4,
+              message: "Note should be at least 4 characters long.",
+            },
+          })}
           onChange={(e) => setText(e.target.value)}
+          className={errors.text ? "border-red-500" : ""}
         />
+        <p className="text-red-300 text-muted-foreground">
+          {errors.text?.message}
+        </p>
 
         <Button type="submit">Add Notes</Button>
       </form>
