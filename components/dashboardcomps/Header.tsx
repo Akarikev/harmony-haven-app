@@ -9,10 +9,10 @@ import Search from "./SearchComponent";
 import SearchComponent from "./SearchComponent";
 import Quotes from "./Quotes";
 
-interface HeaderProps {}
+// interface HeaderProps {}
 
 const Header = () => {
-  const [user] = useAuthState(auth);
+ const [user] = useAuthState(auth);
   const userImage = user?.photoURL;
 
   // eslint-disable-next-line react/jsx-key

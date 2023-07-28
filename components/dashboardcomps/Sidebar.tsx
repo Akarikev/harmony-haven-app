@@ -44,12 +44,12 @@ const Sidebar = ({ children }: sideBarProps) => {
 
   return (
     <div>
-      <div className="fixed top-50 left-0 w-20  h-screen p-4 bg-white border-r-[1px] flex flex-col justify-between">
+      <div className="fixed hidden top-50 left-0 w-20  h-screen p-4 bg-white border-r-[1px] md:flex flex-col justify-between">
         {routes.map((item) => (
           <SidebarItem key={item.label} {...item} />
         ))}
       </div>
-      <main className="ml-20 ">{children}</main>
+      <main className="md:ml-20">{children}</main>
     </div>
   );
 };
