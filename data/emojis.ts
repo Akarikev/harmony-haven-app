@@ -1,1 +1,19 @@
-export const emojiMood: number[] = [1, 2, 3, 4, 6, 7, 8];
+export const emojiMood = [
+  {
+    emojiName: "Happy",
+    emoji: "😁",
+  },
+  {
+    emojiName: "sad",
+    emoji: "😥",
+  },
+  {
+    emojiName: "Chill",
+    emoji: "😎",
+  },
+
+  {
+    emojiName: "Motivated/Loved",
+    emoji: "🤗",
+  },
+];

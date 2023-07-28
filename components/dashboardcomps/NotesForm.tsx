@@ -8,17 +8,9 @@ import { db } from "@/config/Firestore_d";
 import { toast } from "../ui/use-toast";
 import { ToastAction } from "@radix-ui/react-toast";
 import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+
 import { useForm } from "react-hook-form";
+import UserNotes from "./UserNotes";
 
 type Notes = {
   id: string;
@@ -42,6 +34,8 @@ export function NotesForm() {
   const [data, setData] = useState<Notes[]>([]);
   const [title, setTitle] = useState<string>("");
   const [text, setText] = useState<string>("");
+  const [mood, setMood] = useState<string>("");
+
   const {
     register,
     handleSubmit,
@@ -69,6 +63,7 @@ export function NotesForm() {
         title,
         text,
         created_at,
+        mood,
       });
 
       console.log("Document written with ID: ", docRef.id);
@@ -90,80 +85,96 @@ export function NotesForm() {
       // Clear the form fields after successful submission
       setTitle("");
       setText("");
+      setMood("");
     } catch (error) {
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: "Error Adding your note in, Please Check your connection ",
+        description: "Error Adding your note in, Please Check your connection ", //catches error and display it to the user
         action: <ToastAction altText="Try again">Try again</ToastAction>,
       });
-      console.error("Error adding document: ", error);
+      console.error("Error adding document: ", error); //catch error and log it into the console
     }
   };
   return (
-    <div
-      className="mt-6 border shadow-lg p-4 rounded-lg"
-      suppressHydrationWarning
-    >
-      <h1 className="text-center text-2xl uppercase font-bold text-muted-foreground">
-        Write Notes :
-      </h1>
-
-      <form
-        onSubmit={handleSubmit(sendToDB)}
-        className="grid w-full gap-2 mt-4"
+    <div>
+      <div
+        className="mt-10 border shadow-lg p-4 rounded-lg "
+        suppressHydrationWarning
       >
-        <Input
-          type="text"
-          placeholder="Note/Journal title"
-          value={title}
-          {...register("title", {
-            required:
-              "Hey, this is a required field, maybe you forgot to add it",
-            minLength: {
-              value: 4,
-              message: "Title should be at least 4 characters long.",
-            },
-          })}
-          onChange={(e) => setTitle(e.target.value)}
-          className={errors.title ? "border-red-500" : ""}
-        />
-        <p className="text-red-300 text-muted-foreground">
-          {errors.title?.message}
-        </p>
+        <h1 className="text-center text-2xl uppercase font-bold text-muted-foreground">
+          Write Notes :
+        </h1>
 
-        <Textarea
-          placeholder="Type your message here."
-          value={text}
-          {...register("text", {
-            required: "Hey!, This is also required, did you forget to add it?",
-            minLength: {
-              value: 4,
-              message: "Note should be at least 4 characters long.",
-            },
-          })}
-          onChange={(e) => setText(e.target.value)}
-          className={errors.text ? "border-red-500" : ""}
-        />
-        <p className="text-red-300 text-muted-foreground">
-          {errors.text?.message}
-        </p>
+        <form
+          onSubmit={handleSubmit(sendToDB)}
+          className="grid w-full gap-2 mt-4"
+        >
+          <Input
+            type="text"
+            placeholder="Note/Journal title"
+            value={title}
+            {...register("title", {
+              required:
+                "Hey, this is a required field, maybe you forgot to add it",
+              minLength: {
+                value: 4,
+                message: "Title should be at least 4 characters long.",
+              },
+            })}
+            onChange={(e) => setTitle(e.target.value)}
+            className={errors.title ? "border-red-500" : ""}
+          />
+          <p className="text-red-300 text-muted-foreground">
+            {errors.title?.message}
+          </p>
 
-        <Button type="submit">Add Notes</Button>
-      </form>
+          <Textarea
+            placeholder="Type your message here."
+            value={text}
+            {...register("text", {
+              required:
+                "Hey!, This is also required, did you forget to add it?",
+              minLength: {
+                value: 4,
+                message: "Note should be at least 4 characters long.",
+              },
+            })}
+            onChange={(e) => setText(e.target.value)}
+            className={errors.text ? "border-red-500" : ""}
+          />
+          <p className="text-red-300 text-muted-foreground">
+            {errors.text?.message}
+          </p>
 
-      <p className="text-muted-foreground text-center">
-        Choose your mood for this :
-      </p>
-      <div className="flex justify-center gap-10 flex-wrap  ">
-        {emojiMood.map((item: any) => (
-          <ul key={item.item} className=" flex justify-center items-center ">
-            <li className="flex justify-center items-center  w-16 h-16 text-center border shadow-md rounded-full  hover:bg-muted-foreground hover:text-white cursor-pointer transition-all ease-in-out delay-75">
-              {item}
-            </li>
-          </ul>
-        ))}
+          <p className="text-muted-foreground text-center">
+            Choose your mood for this :
+          </p>
+          <div className="flex justify-center gap-10 flex-wrap">
+            {emojiMood.map((item: any) => (
+              <ul
+                key={item.emojiName}
+                className={`flex justify-center items-center ${
+                  mood === item.emoji ? "border-green-500" : ""
+                }`}
+                onClick={() => setMood(item.emoji)} // Set the mood state on click
+              >
+                <li
+                  className={`flex justify-center items-center w-16 h-16 text-center border shadow-md rounded-full hover:bg-muted-foreground hover:text-white cursor-pointer transition-all ease-in-out delay-75 ${
+                    mood === item.emoji ? "bg-muted-foreground text-white" : ""
+                  }`}
+                >
+                  {item.emoji}
+                </li>
+              </ul>
+            ))}
+          </div>
+
+          <Button type="submit">Add Notes</Button>
+        </form>
       </div>
+
+      <UserNotes {...setData} {...data} />
     </div>
   );
 }
