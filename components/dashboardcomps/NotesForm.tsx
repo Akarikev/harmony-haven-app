@@ -97,22 +97,25 @@ export function NotesForm() {
     }
   };
   return (
-    <div>
+    <div className="md:px-32 lg:px-36">
       <div
         className="mt-10 border shadow-lg p-4 rounded-lg "
         suppressHydrationWarning
       >
         <h1 className="text-center text-2xl uppercase font-bold text-muted-foreground">
-          Write Notes :
+          New Entry
         </h1>
 
+        <p className="text-center text-gray-500 text-sm">
+          Add a new entry to your diary / journel
+        </p>
         <form
           onSubmit={handleSubmit(sendToDB)}
           className="grid w-full gap-2 mt-4"
         >
           <Input
             type="text"
-            placeholder="Note/Journal title"
+            placeholder="Entry title"
             value={title}
             {...register("title", {
               required:
@@ -130,7 +133,7 @@ export function NotesForm() {
           </p>
 
           <Textarea
-            placeholder="Type your message here."
+            placeholder="What happened on this day?."
             value={text}
             {...register("text", {
               required:
@@ -148,9 +151,9 @@ export function NotesForm() {
           </p>
 
           <p className="text-muted-foreground text-center">
-            Choose your mood for this :
+            How does this makes you feel ?
           </p>
-          <div className="flex justify-center gap-10 flex-wrap">
+          <div className="flex justify-center gap-10 flex-wrap mt-2">
             {emojiMood.map((item: any) => (
               <ul
                 key={item.emojiName}
@@ -170,7 +173,9 @@ export function NotesForm() {
             ))}
           </div>
 
-          <Button type="submit">Add Notes</Button>
+          <Button type="submit" className="mt-4 mb-4">
+            Add Notes
+          </Button>
         </form>
       </div>
 

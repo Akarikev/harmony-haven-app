@@ -10,9 +10,9 @@ function Quotes() {
   const randomQuotes = useRandomQuotes(8);
 
   return (
-    <div className="w-full mt-4">
+    <div className="w-full mt-4 font-[inter]">
       <Wrapper suppressHydrationWarning>
-        <h3 className="pl-3 mx-auto font-bold text-center text-md text-zinc-600 md:text-3xl md:text-start">
+        <h3 className="pl-3 text-xl font-medium mx-auto  text-center  text-zinc-600 md:text-3xl md:text-bold md:text-start font-[inter]">
           Motivational Cards 💪
         </h3>
         <Splide
@@ -24,7 +24,7 @@ function Quotes() {
             gap: "5rem",
             autoplay: true,
             rewind: true,
-            type   : 'loop',
+            type: "loop",
             breakpoints: {
               640: {
                 perPage: 1,

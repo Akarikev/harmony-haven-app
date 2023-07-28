@@ -12,7 +12,7 @@ import Quotes from "./Quotes";
 // interface HeaderProps {}
 
 const Header = () => {
- const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const userImage = user?.photoURL;
 
   // eslint-disable-next-line react/jsx-key
@@ -20,12 +20,12 @@ const Header = () => {
 
   console.log(user);
   return (
-    <div className="flex flex-col justify-center px-4 pt-4 md:flex-row items-center md:justify-between gap-y-2">
-      <h2 className="scroll-m-20 font-bold border-b pb-2 text-lg  tracking-tight transition-colors first:mt-0 md:text-3xl text-center md:text-start text-[#55558b] font-[inter]">
+    <div className="flex flex-col justify-center px-4 pt-4 md:flex-row items-center md:justify-between gap-y-2 font-[inter]">
+      <h2 className="  border-b pb-2 text-lg   md:text-3xl text-center md:text-start text-gray-500 md:uppercase font-semibold">
         Hello, 👋{!user ? "" : user.displayName} How is it going today?
       </h2>
 
-      <SearchComponent content={componentsToRender} />
+      {/* <SearchComponent content={componentsToRender} /> */}
 
       <Image
         src={userImage}

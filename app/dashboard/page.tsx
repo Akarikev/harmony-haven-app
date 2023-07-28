@@ -13,7 +13,7 @@ interface AudioElement extends HTMLAudioElement {
 function page() {
   return (
     <div className="font-[inter]  ">
-      <main className="bg-gray-100 min-h-screen">
+      <main className="bg-white min-h-screen">
         <Header />
         <TopCards />
         <div className="p-4 grid md:grid-cols-3 grid-cols-1 gap-4">
