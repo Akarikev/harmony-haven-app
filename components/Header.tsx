@@ -28,9 +28,7 @@ function Header() {
 
         {/* Main header */}
 
-        <h2 className=" text-[#0a0a81] scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 font-[Abril Fatface]">
-          Harmony Haven
-        </h2>
+        <h2 className="header_title ">Harmony Haven</h2>
 
         <div className="hidden space-x-3   md:block font-[inter] lg:block xl:block">
           <Button variant={"link"}>
@@ -142,11 +140,10 @@ function Header() {
         }}
         className="flex flex-col items-center justify-center pl-5 mt-2 xl:flex-row xl:text-left md:flex-col"
       >
-        <div className={introTextStyle}>
-          <h1 className="text-[#946e21] font-medium ">
-            <span className="text-[#0a0a81]   ">
-              Your Mental Health is Your
-            </span>
+        <div className="section_header">
+          {/* any other codes goes here */}
+          <h1 className="text-[#946e21]  ">
+            <span className="text-blue-700  ">Your Mental Health is Your</span>
             <br />
             <span className="text-center underline decoration-wavy">
               Wealth

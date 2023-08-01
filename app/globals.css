@@ -86,3 +86,16 @@
 Sidebar {
   margin: 0% 10%;
 }
+
+.header_title {
+  font-family: "Abril Fatface", cursive;
+  @apply text-blue-700 cursor-pointer md:text-3xl;
+  font-feature-settings: "calt", "rlig";
+}
+
+.section_header {
+  font-family: "Abril Fatface", cursive;
+  @apply text-5xl px-3 flex flex-col justify-center items-center text-center xl:text-7xl xl:text-left xl:pl-3 md:text-center md:text-7xl;
+
+  font-feature-settings: "calt", "rlig";
+}
