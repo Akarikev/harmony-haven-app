@@ -3,6 +3,28 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
+@font-face {
+  font-family: "Inter-Regular";
+  src: local("Inter"), url("/assets/fonts/Inter-Regular.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Inter-Medium";
+  src: local("Inter-Medium"),
+    url("/assets/fonts/Inter-Medium.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "CalSans-SemiBold";
+  src: local("CalSans-SemiBold"),
+    url("/assets/fonts/CalSans-SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: "CalSans-SemiBold";
+  src: local("CalSans-SemiBold"),
+    url("/assets/fonts/CalSans-SemiBold.woff2") format("woff2");
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -76,6 +98,8 @@
   body {
     @apply font-[inter] text-foreground;
     /* overflow-x: hidden; */
+
+    font-family: Inter-Regular;
   }
 }
 
