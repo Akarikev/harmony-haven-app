@@ -3,12 +3,9 @@
 import BarChart from "@/components/dashboardcomps/BarChart";
 import Header from "@/components/dashboardcomps/Header";
 import Meditation from "@/components/dashboardcomps/Meditation";
+import NotesToHome from "@/components/dashboardcomps/NotesToHome";
 
 import TopCards from "@/components/dashboardcomps/TopCards";
-
-interface AudioElement extends HTMLAudioElement {
-  src: string;
-}
 
 function page() {
   return (
@@ -20,7 +17,10 @@ function page() {
           {/* <BarChart /> */}
 
           <Meditation />
+
+          {/* Notes  */}
         </div>
+        <NotesToHome />
       </main>
     </div>
   );

@@ -75,6 +75,9 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
   const editNote = async (noteId: string, updatedData: Partial<Notes>) => {
     try {
       await updateDoc(doc(db, "notes", noteId), updatedData);
+      toast({
+        title: "Entry Edited, and saved",
+      });
 
       // Fetch the updated data from Firebase again
       fetchData();
