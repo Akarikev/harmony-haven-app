@@ -20,6 +20,7 @@ const Meditation: React.FC = () => {
           alt={
             meditations.popular.length > 0 ? meditations.popular[0].title : ""
           }
+          className="object-contain"
         />
 
         <audio controls className="">

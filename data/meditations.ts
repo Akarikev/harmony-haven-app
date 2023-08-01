@@ -30,7 +30,7 @@ export const popular: Meditation[] = [
     subtitle: "Love and Peace",
     time: 2,
     uri: "https://goofy-ritchie-dd0c3d.netlify.app/meditations/17.mp3",
-    image: "/images/meditate6.jpg",
+    image: require("/assets/images/meditate6.jpg"),
   },
   {
     id: "ff171f80-5960-41e7-965c-1f9bcf31e02d",

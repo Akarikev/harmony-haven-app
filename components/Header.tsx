@@ -28,7 +28,7 @@ function Header() {
 
         {/* Main header */}
 
-        <h2 className="text-[#0a0a81] scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 font-[Abril Fatface]">
+        <h2 className=" text-[#0a0a81] scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 font-[Abril Fatface]">
           Harmony Haven
         </h2>
 

@@ -56,7 +56,7 @@ function Notes() {
         </h3>
 
         <Button onClick={onClickable} className="align-top">
-          {addEntry ? "Close Entry" : "New Entry"}
+          {addEntry ? " X Close Entry" : "New Entry"}
         </Button>
 
         <DropdownMenu>

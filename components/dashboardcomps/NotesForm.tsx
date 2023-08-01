@@ -179,7 +179,7 @@ export function NotesForm() {
         </form>
       </div>
 
-      <UserNotes {...setData} {...data} />
+      <UserNotes />
     </div>
   );
 }
