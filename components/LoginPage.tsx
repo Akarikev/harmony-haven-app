@@ -66,7 +66,7 @@ function LoginPage() {
         <span className="underline text-cyan-500">Harmony Haven</span>
       </h1> */}
 
-        <h1 className="font-[inter] text-3xl text-center text-[#0f172a]">
+        <h1 className="login_text text-3xl text-center text-[#0f172a]">
           Login to continue to harmony haven
         </h1>
 

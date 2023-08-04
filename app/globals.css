@@ -20,9 +20,14 @@
     url("/assets/fonts/CalSans-SemiBold.woff") format("woff");
 }
 @font-face {
-  font-family: "CalSans-SemiBold";
+  font-family: "CalSans-SemiBold2";
   src: local("CalSans-SemiBold"),
     url("/assets/fonts/CalSans-SemiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "AbrilFatface-Regular";
+  src: local("AbrilFatface-Regular"),
+    url("/assets/fonts/AbrilFatface-Regular.ttf") format("ttf");
 }
 
 @layer base {
@@ -112,14 +117,19 @@ Sidebar {
 }
 
 .header_title {
-  font-family: "Abril Fatface", cursive;
+  /* font-family: "Abril Fatface", cursive; */
+  font-family: CalSans-SemiBold;
   @apply text-blue-700 cursor-pointer md:text-3xl;
   font-feature-settings: "calt", "rlig";
 }
 
 .section_header {
-  font-family: "Abril Fatface", cursive;
+  font-family: AbrilFatface-Regular;
   @apply text-5xl px-3 flex flex-col justify-center items-center text-center xl:text-7xl xl:text-left xl:pl-3 md:text-center md:text-7xl;
 
   font-feature-settings: "calt", "rlig";
+}
+
+.login_text {
+  font-family: CalSans-SemiBold;
 }

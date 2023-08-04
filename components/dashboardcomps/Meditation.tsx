@@ -7,7 +7,9 @@ const Meditation: React.FC = () => {
 
   return (
     <div>
-      <h1 className="text-zinc-700 text-3xl font-medium ">Meditations 🧘‍♀️</h1>
+      <h1 className="login_text text-[#0f172a] text-3xl font-medium ">
+        Meditations 🧘‍♀️
+      </h1>
       {/* <MeditationList meditations={selectedMeditations} /> */}
 
       <div className="p-4 shadow-md rounded-md bg-slate-700">

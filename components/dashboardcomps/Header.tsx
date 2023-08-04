@@ -21,7 +21,7 @@ const Header = () => {
   console.log(user);
   return (
     <div className="flex flex-col justify-center px-4 pt-4 md:flex-row items-center md:justify-between gap-y-2 font-[inter]">
-      <h2 className="  border-b pb-2 text-lg   md:text-3xl text-center md:text-start text-[#0f172a] md:uppercase font-semibold">
+      <h2 className="login_text  border-b pb-2 text-lg   md:text-3xl text-center md:text-start text-[#454e63] md:uppercase font-semibold">
         Hello, 👋{!user ? "" : user.displayName} How is it going today?
       </h2>
 

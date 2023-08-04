@@ -12,7 +12,7 @@ function Quotes() {
   return (
     <div className="w-full mt-4 font-[inter]">
       <Wrapper suppressHydrationWarning>
-        <h3 className="pl-3 text-xl font-medium mx-auto  text-center  text-zinc-600 md:text-3xl md:text-bold md:text-start font-[inter]">
+        <h3 className="pl-3 text-xl font-medium mx-auto  text-center  login_text text-[#0f172a] md:text-3xl md:text-bold md:text-start ">
           Motivational Cards 💪
         </h3>
         <Splide

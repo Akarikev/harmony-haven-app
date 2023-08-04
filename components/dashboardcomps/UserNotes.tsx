@@ -35,8 +35,8 @@ type Notes = {
 
 const UserNotes: FC<UserNotesProps> = ({}) => {
   const [data, setData] = useState<Notes[]>([]);
-  const [updatedTitle, setUpdatedTitle] = useState("");
-  const [updatedText, setUpdatedText] = useState("");
+  // const [updatedTitle, setUpdatedTitle] = useState("");
+  // const [updatedText, setUpdatedText] = useState("");
   const [noteIdToEdit, setNoteIdToEdit] = useState<string | null>(null);
   const [updatedNoteData, setUpdatedNoteData] = useState<{
     [id: string]: Partial<Notes>;
@@ -56,6 +56,9 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
       [noteId]: { ...prevData[noteId], text: value },
     }));
   };
+
+
+  
 
   const fetchData = async () => {
     const querySnapshot = await getDocs(collection(db, "notes"));
@@ -77,6 +80,7 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
       await updateDoc(doc(db, "notes", noteId), updatedData);
       toast({
         title: "Entry Edited, and saved",
+        description: "Your entry has been saved 🎉",
       });
 
       // Fetch the updated data from Firebase again
@@ -129,6 +133,7 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
                       handleTitleChange(noteItem.id, e.target.value)
                     }
                     placeholder="Enter updated title"
+                    className="mb-2"
                   />
                   <Input
                     type="text"
