@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { toast } from "../ui/use-toast";
 import { ToastAction } from "../ui/toast";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 type Notes = {
   id: string;
@@ -46,23 +47,23 @@ function NotesToHome() {
   return (
     <div>
       <h1 className="login_text text-[#0f172a] text-3xl  pl-4">Your Notes</h1>
-      <div className="md:px-14 lg:px-20 px-4 grid grid-cols-2 gap-2 ">
-        {!data ? (
-          <div>
-            <p>
-              No Notes Entry Created please click the button below to add notes
-            </p>
-            <Button>Create New Entry</Button>
+      <div className="grid grid-cols-2 gap-2 px-4 md:px-14 lg:px-20 ">
+        {data.length === 0 ? (
+          <div className="flex flex-col items-center justify-center w-full">
+            <p>No Notes Entry Created please add new one </p>
+            <Button variant={"link"}>
+              <Link href={"/dashboard/notes/"}>Add New Entry</Link>
+            </Button>
           </div>
         ) : (
           data.map((entry) => {
             return (
               <div
                 key={entry.id}
-                className="border cursor-pointer hover:bg-red-200 p-4  shadow-md rounded-lg "
+                className="p-4 border rounded-lg shadow-md cursor-pointer hover:bg-red-200 "
               >
                 <div>
-                  <h1 className="font-medium text-zinc-700 underline underline-offset-2">
+                  <h1 className="font-medium underline text-zinc-700 underline-offset-2">
                     Title: {entry.title}
                   </h1>
                   <p className="text-sm text-gray-800">{entry.text}</p>
