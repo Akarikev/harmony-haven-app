@@ -15,9 +15,7 @@ import { Button } from "./ui/button";
 import { useToast } from "./ui/use-toast";
 import { ToastAction } from "@radix-ui/react-toast";
 import { Mail } from "lucide-react";
-import Image from "next/image";
-import { Input } from "./ui/input";
-import PhoneLogin from "./PhoneLogin";
+
 
 function LoginPage() {
   const router = useRouter();
