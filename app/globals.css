@@ -1,6 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "Inter-Regular";
+  src: local("Inter"), url("/assets/fonts/Inter-Regular.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Inter-Medium";
+  src: local("Inter-Medium"),
+    url("/assets/fonts/Inter-Medium.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "CalSans-SemiBold";
+  src: local("CalSans-SemiBold"),
+    url("/assets/fonts/CalSans-SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: "CalSans-SemiBold2";
+  src: local("CalSans-SemiBold"),
+    url("/assets/fonts/CalSans-SemiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "AbrilFatface-Regular";
+  src: local("AbrilFatface-Regular"),
+    url("/assets/fonts/AbrilFatface-Regular.ttf") format("ttf");
+}
 
 @layer base {
   :root {
@@ -74,5 +102,34 @@
   }
   body {
     @apply font-[inter] text-foreground;
+    /* overflow-x: hidden; */
+
+    font-family: Inter-Regular;
   }
+}
+
+/* Button {
+  font-family: "Inter", sans-serif;
+} */
+
+Sidebar {
+  margin: 0% 10%;
+}
+
+.header_title {
+  /* font-family: "Abril Fatface", cursive; */
+  font-family: "CalSans-SemiBold";
+  @apply text-blue-700 cursor-pointer md:text-3xl;
+  font-feature-settings: "calt", "rlig";
+}
+
+.section_header {
+  font-family: "AbrilFatface-Regular";
+  @apply text-5xl px-3 flex flex-col justify-center items-center text-center xl:text-7xl xl:text-left xl:pl-3 md:text-center md:text-7xl;
+
+  font-feature-settings: "calt", "rlig";
+}
+
+.login_text {
+  font-family: "CalSans-SemiBold";
 }

@@ -1,4 +1,4 @@
-import { ClerkProvider } from "@clerk/nextjs";
+
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Head from "next/head";
@@ -41,14 +41,14 @@ export default function RootLayout({
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </head>
       <body className={inter.className}>
-        <ClerkProvider>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+     
+     
        
           {children}
 
           <Toaster />
-       </ThemeProvider>
-        </ClerkProvider>
+     
+       
       </body>
     </html>
   );
