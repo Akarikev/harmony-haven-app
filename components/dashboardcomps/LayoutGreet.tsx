@@ -8,9 +8,13 @@ function LayoutGreet() {
   useLayoutEffect(() => {
     setTimeout(() => {
       <GreetText text="hello" />;
-    }, 5000);
+    }, 100000);
   }, []);
-  return <div></div>;
+  return (
+    <div>
+      <GreetText />
+    </div>
+  );
 }
 
 export default LayoutGreet;
