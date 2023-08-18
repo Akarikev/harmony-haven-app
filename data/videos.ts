@@ -11,4 +11,4 @@ export const Videos: videoProps = {
   embed: ``,
 };
 
-console.log(Videos.id);
+console.log("Video :", Videos.id);
