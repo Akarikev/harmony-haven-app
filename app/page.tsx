@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Abril_Fatface } from "next/font/google";
 import Header from "@/components/Header";
 import Features from "@/components/Features";
+import GreetText from "@/components/dashboardcomps/GreetText";
 
 export default function Home() {
   return (
@@ -13,8 +14,6 @@ export default function Home() {
       {/* Features */}
 
       <Features />
-
-      
     </div>
   );
 }

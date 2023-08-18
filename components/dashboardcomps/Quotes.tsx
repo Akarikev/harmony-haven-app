@@ -15,6 +15,8 @@ function Quotes() {
         <h3 className="pl-3 text-xl font-medium mx-auto  text-center  login_text text-[#0f172a] md:text-3xl md:text-bold md:text-start ">
           Motivational Cards 💪
         </h3>
+
+        {/*  */}
         <Splide
           options={{
             perPage: 3,

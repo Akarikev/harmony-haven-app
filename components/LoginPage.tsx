@@ -17,6 +17,7 @@ import { ToastAction } from "@radix-ui/react-toast";
 import { Mail } from "lucide-react";
 import Image from "next/image";
 import { Input } from "./ui/input";
+import PhoneLogin from "./PhoneLogin";
 
 function LoginPage() {
   const router = useRouter();
@@ -45,13 +46,13 @@ function LoginPage() {
     }
   };
   return (
-    <div className="relative min-h-screen">
+    <div className="min-h-screen flex justify-center items-center">
       {/* <Image
         src="/images/image_login.jpg"
         layout="fill"
         objectFit="cover"
         alt="login image"
-        className="object-contain  blur-sm"
+        className="object-contain blur-sm"
       /> */}
 
       {/* <h2 className="-mt-32 text-xl text-white font-[inter] absolute text-center flex justify-center min-h-screen  items-center md:text-center md:align-middle lg:text-center lg:align-middle mx-auto">
@@ -59,8 +60,8 @@ function LoginPage() {
         gmail account and get started
       </h2> */}
 
-      <div className="absolute inset-0 flex flex-col justify-center items-center">
-        {/* <h1 className="scroll-m-20 text-4xl font-extrabold lg:text-5xl uppercase text-center mb-8 leading-3 ">
+      <div className="flex flex-col items-center justify-center ">
+        {/* <h1 className="mb-8 text-4xl font-extrabold leading-3 text-center uppercase scroll-m-20 lg:text-5xl ">
         {" "}
         Login with Google to continue to{" "}
         <span className="underline text-cyan-500">Harmony Haven</span>
@@ -75,6 +76,8 @@ function LoginPage() {
           Login with Google
         </Button>
       </div>
+
+      {/* <PhoneLogin /> */}
     </div>
   );
 }

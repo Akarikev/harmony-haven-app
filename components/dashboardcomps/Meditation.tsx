@@ -6,17 +6,15 @@ const Meditation: React.FC = () => {
   // const selectedMeditations: Meditation[] = meditations["group1"];
 
   return (
-    <div>
+    <div className="p-4">
       <h1 className="login_text text-[#0f172a] text-3xl font-medium ">
         Meditations 🧘‍♀️
       </h1>
       {/* <MeditationList meditations={selectedMeditations} /> */}
 
-      <div className="p-4 shadow-md rounded-md bg-slate-700">
-        <Image
-          src={
-            meditations.popular.length > 0 ? meditations.popular[0].image : ""
-          }
+      <div className=" flex flex-col lg:flex lg:flex-row lg:gap-x-3">
+        {/* <Image
+          src={meditations.popular ? meditations.popular[2].image : ""}
           width={100}
           height={100}
           alt={
@@ -28,10 +26,26 @@ const Meditation: React.FC = () => {
         <audio controls className="">
           <source
             src={
-              meditations.popular.length > 0 ? meditations.popular[0].uri : ""
+              meditations.popular.length > 0 ? meditations.popular.uri : ""
             }
           />
-        </audio>
+        </audio> */}
+
+        {meditations.popular.map((item) => {
+          return (
+            <div key={item.id} className="border shadow-md rounded-md p-2 ">
+              <Image
+                src={item.image}
+                alt={item.title}
+                className="w-full object-contain rounded-md"
+              />
+              <h1 className="text-center">{item.title}</h1>
+              <audio controls className="  w-40 rounded-lg  ">
+                <source src={item.uri} />
+              </audio>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

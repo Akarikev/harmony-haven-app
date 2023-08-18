@@ -57,9 +57,6 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
     }));
   };
 
-
-  
-
   const fetchData = async () => {
     const querySnapshot = await getDocs(collection(db, "notes"));
     const newData: Notes[] = querySnapshot.docs.map((doc) => ({
@@ -145,11 +142,11 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
                   />
                 </>
               ) : (
-                <>
+                <div>
                   {noteItem.title}
                   {noteItem.text}
                   {noteItem.created_at}
-                </>
+                </div>
               )}
 
               <AlertDialog>

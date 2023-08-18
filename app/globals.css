@@ -118,18 +118,18 @@ Sidebar {
 
 .header_title {
   /* font-family: "Abril Fatface", cursive; */
-  font-family: CalSans-SemiBold;
+  font-family: "CalSans-SemiBold";
   @apply text-blue-700 cursor-pointer md:text-3xl;
   font-feature-settings: "calt", "rlig";
 }
 
 .section_header {
-  font-family: AbrilFatface-Regular;
+  font-family: "AbrilFatface-Regular";
   @apply text-5xl px-3 flex flex-col justify-center items-center text-center xl:text-7xl xl:text-left xl:pl-3 md:text-center md:text-7xl;
 
   font-feature-settings: "calt", "rlig";
 }
 
 .login_text {
-  font-family: CalSans-SemiBold;
+  font-family: "CalSans-SemiBold";
 }

@@ -8,6 +8,9 @@ import Image from "next/image";
 import Search from "./SearchComponent";
 import SearchComponent from "./SearchComponent";
 import Quotes from "./Quotes";
+import LoginPage from "../LoginPage";
+
+import Link from "next/link";
 
 // interface HeaderProps {}
 
@@ -20,20 +23,27 @@ const Header = () => {
 
   console.log(user);
   return (
-    <div className="flex flex-col justify-center px-4 pt-4 md:flex-row items-center md:justify-between gap-y-2 font-[inter]">
-      <h2 className="login_text  border-b pb-2 text-lg   md:text-3xl text-center md:text-start text-[#454e63] md:uppercase font-semibold">
-        Hello, 👋{!user ? "" : user.displayName} How is it going today?
+    <div className="w-full  flex flex-col justify-center px-4 pt-4 md:flex-row items-center md:justify-between gap-y-2 font-[inter] ">
+      <h2 className="login_text  text-lg   md:text-3xl text-center md:text-start text-[#454e63] md:uppercase font-semibold bg-gradient-to-b from-zinc-200 pb-6 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit md:static md:w-auto  md:rounded-xl  md:border lg:bg-gray-200 md:p-4 md:dark:bg-zinc-800/30 fixed left-0 top-0 flex w-full justify-center border-b border-gray-300">
+        Hello, 👋
+        {!user ? "" : user.displayName} How is it going today?
       </h2>
 
       {/* <SearchComponent content={componentsToRender} /> */}
 
-      <Image
-        src={userImage}
-        alt="user image"
-        width={30}
-        height={30}
-        className="object-contain rounded-full h-10 w-10 align-top"
-      />
+      {!user ? (
+        <Link href="/login" className="text-gray-700">
+          youre not logged, click here to continue
+        </Link>
+      ) : (
+        <Image
+          src={userImage}
+          alt="user image"
+          width={30}
+          height={30}
+          className="object-contain rounded-full h-10 w-10 align-top mt-10 md:mt-0 md:ml-2"
+        />
+      )}
     </div>
   );
 };

@@ -49,7 +49,7 @@ function NotesToHome() {
       <h1 className="login_text text-[#0f172a] text-3xl  pl-4">Your Notes</h1>
       <div className="grid grid-cols-2 gap-2 px-4 md:px-14 lg:px-20 ">
         {data.length === 0 ? (
-          <div className="flex flex-col items-center justify-center w-full">
+          <div className="flex flex-col items-center justify-center w-full ">
             <p>No Notes Entry Created please add new one </p>
             <Button variant={"link"}>
               <Link href={"/dashboard/notes/"}>Add New Entry</Link>
