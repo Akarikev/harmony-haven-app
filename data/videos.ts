@@ -1,9 +1,14 @@
 type videoProps = {
-  id: number;
+  id: any;
   embed: string;
 };
 
+enum idVideo {
+  id,
+}
 export const Videos: videoProps = {
-  id: 0,
+  id: idVideo,
   embed: ``,
 };
+
+console.log(Videos.id);
