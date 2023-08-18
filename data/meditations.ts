@@ -1,5 +1,6 @@
-import { ImageSourcePropType } from 'react-native'
-import Image  from 'next/image'
+
+import Image from 'next/image'
+
 export interface Meditation {
   /* Unique id of the meditation */
   id: string
@@ -12,7 +13,7 @@ export interface Meditation {
   /* The order of the meditation in the list */
   order: number
   /* URL of the image to show */
-  image: ImageSourcePropType
+  image: typeof Image
   /* URI of the audio file */
   uri: string
   /* Track ID from the back-end */
