@@ -1,11 +1,14 @@
-
 import "./globals.css";
-import { Inter } from "next/font/google";
+
 import Head from "next/head";
 import { Toaster } from "@/components/ui/toaster";
-import ThemeProvider  from "@/components/ui/theme-provider";
-const inter = Inter({ subsets: ["latin"] });
+import ThemeProvider from "@/components/ui/theme-provider";
+import { Inter } from "next/font/google";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 export const metadata = {
   title: "Harmony Haven Ghana",
@@ -40,15 +43,10 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </head>
-      <body className={inter.className}>
-     
-     
-       
-          {children}
+      <body className={`${inter.variable} font-sans`}>
+        {children}
 
-          <Toaster />
-     
-       
+        <Toaster />
       </body>
     </html>
   );

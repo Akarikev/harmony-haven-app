@@ -1,6 +1,10 @@
 import Sidebar from "@/components/dashboardcomps/Sidebar";
 import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"] });
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 export default function DashboardLayout({
   children,
@@ -8,18 +12,8 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-  <section className = {inter.className}>
-
-  
-     <Sidebar>
-     {children}
-     </Sidebar>
-       
-   
-         
-          
-  
-     
-      </section>
+    <section className={`${inter.variable} font-sans`}>
+      <Sidebar>{children}</Sidebar>
+    </section>
   );
 }

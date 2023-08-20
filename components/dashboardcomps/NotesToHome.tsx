@@ -1,11 +1,20 @@
+"use client";
+
 import Notes from "@/app/dashboard/notes/page";
-import { db } from "@/config/Firestore_d";
-import { getDocs, collection } from "firebase/firestore";
+import { auth, db } from "@/config/Firestore_d";
+import { collection, doc, getDocs, query, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { toast } from "../ui/use-toast";
 import { ToastAction } from "../ui/toast";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import {
+  signInWithPopup,
+  signInAnonymously,
+  onAuthStateChanged,
+  getAuth,
+  GoogleAuthProvider,
+} from "firebase/auth";
 
 type Notes = {
   id: string;
@@ -17,15 +26,40 @@ type Notes = {
 
 function NotesToHome() {
   const [data, setData] = useState<Notes[]>([]);
+  const [displayCurrentUserNote, setDisplayCurrentUserNote] = useState(false);
+  const [user, setUser] = useState<any | null>(null); // Store the current user
 
   const fetchData = async () => {
-    const querySnapshot = await getDocs(collection(db, "notes"));
-    const newData: Notes[] = querySnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-    setData(newData);
+    if (!user) {
+      // User is not signed in, do nothing
+      return;
+    }
+
+    const userUID = user.uid;
+
+    try {
+      const querySnapshot = await getDocs(
+        query(collection(db, "notes"), where("uid", "==", userUID))
+      );
+
+      const newData: Notes[] = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      setData(newData);
+    } catch (error) {
+      console.error("Error fetching notes:", error);
+    }
   };
+
+  // const displayUserNote = async () => {
+  //   const resShow = await getAuth();
+  //   const querySnapshot = await getDocs(collection(db, "notes"));
+  //   const dataFromUSer: Notes[] = querySnapshot.docs.map((doc) => ({
+  //     id: doc.id,
+  //   }));
+  // };
 
   if (!data) {
     toast({
@@ -41,9 +75,17 @@ function NotesToHome() {
 
   useEffect(() => {
     // Fetch data from Firebase on component mount
-
+    // Check if the user is signed in and update the state accordingly
+    const authListener = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
     fetchData();
-  }, []);
+    return () => {
+      // Clean up the auth listener when the component unmounts
+      authListener();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
   return (
     <div>
       <h1 className="login_text text-[#0f172a] text-3xl  pl-4">Your Notes</h1>

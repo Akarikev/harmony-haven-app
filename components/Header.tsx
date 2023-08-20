@@ -12,6 +12,18 @@ import {
 import { Abril_Fatface } from "next/font/google";
 import { BiMenuAltRight } from "react-icons/bi";
 import { motion } from "framer-motion";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const fatface = Abril_Fatface({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-fatface",
+});
 
 export const abrilFatFace = Abril_Fatface({
   subsets: ["latin"],
@@ -28,7 +40,9 @@ function Header() {
 
         {/* Main header */}
 
-        <h2 className="header_title ">Harmony Haven</h2>
+        <h2 className={`${fatface.variable} font-face text-blue-400 text-2xl`}>
+          Harmony Haven
+        </h2>
 
         <div className="hidden space-x-3   md:block font-[inter] lg:block xl:block">
           <Button variant={"link"}>
@@ -140,9 +154,9 @@ function Header() {
         }}
         className="flex flex-col items-center justify-center pl-5 mt-2 xl:flex-row xl:text-left md:flex-col"
       >
-        <div className="section_header">
+        <div className="section_header" suppressHydrationWarning>
           {/* any other codes goes here */}
-          <h1 className="text-[#946e21]  ">
+          <h1 className={`${fatface.variable} font-face text-[#946e21]`}>
             <span className="text-blue-700  ">Your Mental Health is Your</span>
             <br />
             <span className="text-center underline decoration-wavy">
@@ -159,7 +173,7 @@ function Header() {
               }}
               className="flex flex-col font-[inter] mx-auto text-lg mt-12"
             >
-              <p>
+              <p className={`${inter.variable} font-sans`}>
                 {
                   "To live your life to it's fullest we're continuing to find ways  to prevent mental health problems"
                 }

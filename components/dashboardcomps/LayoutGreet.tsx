@@ -6,9 +6,9 @@ import { useLayoutEffect } from "react";
 
 function LayoutGreet() {
   useLayoutEffect(() => {
-    setTimeout(() => {
-      <GreetText text="hello" />;
-    }, 100000);
+    // setTimeout(() => {
+    //   <GreetText text="hello" />;
+    // }, 100000);
   }, []);
   return (
     <div>
