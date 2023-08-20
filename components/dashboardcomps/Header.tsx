@@ -24,7 +24,7 @@ const Header = () => {
   console.log(user);
   return (
     <div className="w-full  flex flex-col justify-center px-4 pt-4 md:flex-row items-center md:justify-between gap-y-2 font-[inter] ">
-      <h2 className="login_text  text-lg   md:text-3xl text-center md:text-start text-[#454e63] md:uppercase font-semibold bg-gradient-to-b from-zinc-200 pb-6 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit md:static md:w-auto  md:rounded-xl  md:border lg:bg-gray-200 md:p-4 md:dark:bg-zinc-800/30 fixed left-0 top-0 flex w-full justify-center border-b border-gray-300">
+      <h2 className="font-sans text-lg   md:text-3xl text-center md:text-start text-[#454e63] md:uppercase font-semibold bg-gradient-to-b from-zinc-200 pb-6 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit md:static md:w-auto  md:rounded-xl  md:border lg:bg-gray-200 md:p-4 md:dark:bg-zinc-800/30 fixed left-0 top-0 flex w-full justify-center border-b border-gray-300">
         Hello, 👋
         {!user ? "" : user.displayName} How is it going today?
       </h2>
