@@ -15,6 +15,7 @@ function PostForm() {
   const postRef = collection(db, "community");
   const [user] = useAuthState(auth);
   const [post, setPost] = useState<string>("");
+  let username = localStorage.getItem("tempUser");
 
   const {
     register,
@@ -27,11 +28,12 @@ function PostForm() {
   }); //enforcing validations
 
   const createPost = async () => {
+    // let username = usersname;
     // e.preventDefault();
+
     try {
       await addDoc(postRef, {
         post,
-        // username: localStorage.getItem("tempUser"),
 
         // userId: user?.uid,
         // username,

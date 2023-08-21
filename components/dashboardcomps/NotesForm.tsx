@@ -4,19 +4,21 @@ import { Input } from "@/components/ui/input";
 import { emojiMood } from "@/data/emojis";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { FormEvent, useState } from "react";
-import { db } from "@/config/Firestore_d";
+import { auth, db } from "@/config/Firestore_d";
 import { toast } from "../ui/use-toast";
 import { ToastAction } from "@radix-ui/react-toast";
 import * as z from "zod";
 
 import { useForm } from "react-hook-form";
 import UserNotes from "./UserNotes";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 type Notes = {
   id: string;
   title: string;
   text: string;
   created_at: string;
+  // creatorId: string;
 };
 
 interface NoteInteface {}
@@ -35,6 +37,10 @@ export function NotesForm() {
   const [title, setTitle] = useState<string>("");
   const [text, setText] = useState<string>("");
   const [mood, setMood] = useState<string>("");
+
+  const [user] = useAuthState(auth);
+
+  const USERUID = user?.uid;
 
   const {
     register,
@@ -64,6 +70,7 @@ export function NotesForm() {
         text,
         created_at,
         mood,
+        creatorId: USERUID,
       });
 
       console.log("Document written with ID: ", docRef.id);

@@ -1,4 +1,4 @@
-import { db } from "@/config/Firestore_d";
+import { auth, db } from "@/config/Firestore_d";
 import {
   getDocs,
   collection,
@@ -24,6 +24,7 @@ import { ToastAction } from "@radix-ui/react-toast";
 import { title } from "process";
 import { toast } from "../ui/use-toast";
 import { Input } from "../ui/input";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 interface UserNotesProps {}
 type Notes = {
@@ -31,6 +32,7 @@ type Notes = {
   title: string;
   text: string;
   created_at: string;
+  creatorId: string;
 };
 
 const UserNotes: FC<UserNotesProps> = ({}) => {
@@ -41,6 +43,10 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
   const [updatedNoteData, setUpdatedNoteData] = useState<{
     [id: string]: Partial<Notes>;
   }>({});
+
+  const [user] = useAuthState(auth);
+
+  const USERUID = user?.uid;
 
   // Handle changes to the updated title and text fields
   const handleTitleChange = (noteId: string, value: string) => {
@@ -58,15 +64,19 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
   };
 
   const fetchData = async () => {
-    const querySnapshot = await getDocs(collection(db, "notes"));
+    const getDataRef = await getDocs(collection(db, "notes"));
+    const querySnapshot = getDataRef;
     setData(
       querySnapshot.docs.map((doc) => ({
+        // creatorId: USERUID,
         ...doc.data(),
 
         id: doc.id,
       })) as Notes[]
     );
   };
+
+  console.log(USERUID);
 
   useEffect(() => {
     // Fetch data from Firebase on component mount
@@ -112,114 +122,120 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
   return (
     <div>
       {/* map through the data in the docs, then get the id, use that id to delete the data */}
-      {data.map((noteItem) => {
-        const isEditing = noteIdToEdit === noteItem.id;
-        return (
-          <div
-            key={noteItem.id}
-            className="flex flex-col border shadow-md  px-4 py-4 rounded-lg mb-4 lg:ml-32 lg:mr-32"
-          >
-            <div className="flex flex-col">
-              {/* Display the current values */}
-              {isEditing ? (
-                <>
-                  {/* Show input fields when editing */}
-                  <Input
-                    type="text"
-                    value={
-                      updatedNoteData[noteItem.id]?.title || noteItem.title
-                    }
-                    onChange={(e) =>
-                      handleTitleChange(noteItem.id, e.target.value)
-                    }
-                    placeholder="Enter updated title"
-                    className="mb-2"
-                  />
-                  <Input
-                    type="text"
-                    value={updatedNoteData[noteItem.id]?.text || noteItem.text}
-                    onChange={(e) =>
-                      handleTextChange(noteItem.id, e.target.value)
-                    }
-                    placeholder="Enter updated text"
-                  />
-                </>
-              ) : (
-                <div>
-                  {noteItem.title}
-                  {noteItem.text}
-                  {noteItem.created_at}
-                </div>
-              )}
+      {data
+        ?.filter((item) => {
+          return item?.creatorId === USERUID;
+        })
+        .map((noteItem) => {
+          const isEditing = noteIdToEdit === noteItem.id;
+          return (
+            <div
+              key={noteItem.id}
+              className="flex flex-col border shadow-md  px-4 py-4 rounded-lg mb-4 lg:ml-32 lg:mr-32"
+            >
+              <div className="flex flex-col">
+                {/* Display the current values */}
+                {isEditing ? (
+                  <>
+                    {/* Show input fields when editing */}
+                    <Input
+                      type="text"
+                      value={
+                        updatedNoteData[noteItem.id]?.title || noteItem.title
+                      }
+                      onChange={(e) =>
+                        handleTitleChange(noteItem.id, e.target.value)
+                      }
+                      placeholder="Enter updated title"
+                      className="mb-2"
+                    />
+                    <Input
+                      type="text"
+                      value={
+                        updatedNoteData[noteItem.id]?.text || noteItem.text
+                      }
+                      onChange={(e) =>
+                        handleTextChange(noteItem.id, e.target.value)
+                      }
+                      placeholder="Enter updated text"
+                    />
+                  </>
+                ) : (
+                  <div>
+                    {noteItem.title}
+                    {noteItem.text}
+                    {noteItem.created_at}
+                  </div>
+                )}
 
-              <AlertDialog>
-                <AlertDialogTrigger>
-                  <Button
-                    variant={"destructive"}
-                    className="w-full md:w-fit lg:w-fit lg:align-right mb-2"
-                  >
-                    Delete Note
-                  </Button>
-                </AlertDialogTrigger>
-                <AlertDialogContent>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle>
-                      Are you absolutely sure?
-                    </AlertDialogTitle>
-                    <AlertDialogDescription>
-                      This action cannot be undone. This will permanently delete
-                      your note titled {""}
-                      <span className="font-medium text-xl">
-                        `{noteItem.title}`
-                      </span>
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction
-                      onClick={() => deleteNoteButton(noteItem.id)}
+                <AlertDialog>
+                  <AlertDialogTrigger>
+                    <Button
+                      variant={"destructive"}
+                      className="w-full md:w-fit lg:w-fit lg:align-right mb-2"
                     >
-                      Continue
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
+                      Delete Note
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>
+                        Are you absolutely sure?
+                      </AlertDialogTitle>
+                      <AlertDialogDescription>
+                        This action cannot be undone. This will permanently
+                        delete your note titled {""}
+                        <span className="font-medium text-xl">
+                          `{noteItem.title}`
+                        </span>
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogAction
+                        onClick={() => deleteNoteButton(noteItem.id)}
+                      >
+                        Continue
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
 
-              {/* Edit Note Button */}
-              {isEditing ? (
-                // Save changes button during editing
-                <Button
-                  className="w-full md:w-fit lg:w-fit"
-                  onClick={() => {
-                    const updatedData = updatedNoteData[noteItem.id];
-                    if (
-                      updatedData &&
-                      (updatedData.title || updatedData.text)
-                    ) {
-                      editNote(noteItem.id, updatedData);
-                    } else {
-                      // Do something or show a message to indicate that no changes were made.
+                {/* Edit Note Button */}
+                {isEditing ? (
+                  // Save changes button during editing
+                  <Button
+                    className="w-full md:w-fit lg:w-fit"
+                    onClick={() => {
+                      const updatedData = updatedNoteData[noteItem.id];
+                      if (
+                        updatedData &&
+                        (updatedData.title || updatedData.text)
+                      ) {
+                        editNote(noteItem.id, updatedData);
+                      } else {
+                        // Do something or show a message to indicate that no changes were made.
 
-                      toast({
-                        title: "No changes made",
-                      });
-                    }
-                  }}
-                >
-                  Save Changes
-                </Button>
-              ) : (
-                <Button
-                  onClick={() => setNoteIdToEdit(noteItem.id)}
-                  className="w-full md:w-fit lg:w-fit"
-                >
-                  Edit Note
-                </Button>
-              )}
+                        toast({
+                          title: "No changes made",
+                        });
+                      }
+                    }}
+                  >
+                    Save Changes
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={() => setNoteIdToEdit(noteItem.id)}
+                    className="w-full md:w-fit lg:w-fit"
+                  >
+                    Edit Note
+                  </Button>
+                )}
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };
