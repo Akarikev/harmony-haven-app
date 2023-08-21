@@ -1,5 +1,3 @@
-"use client";
-
 import BarChart from "@/components/dashboardcomps/BarChart";
 import GreetText from "@/components/dashboardcomps/GreetText";
 import Header from "@/components/dashboardcomps/Header";
@@ -8,6 +6,12 @@ import Meditation from "@/components/dashboardcomps/Meditation";
 import NotesToHome from "@/components/dashboardcomps/NotesToHome";
 
 import TopCards from "@/components/dashboardcomps/TopCards";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Harmony-Haven|Dashboard",
+  description: "Users Dashboard",
+};
 
 function page() {
   return (
