@@ -34,6 +34,7 @@ function PostForm() {
     try {
       await addDoc(postRef, {
         post,
+        username,
 
         // userId: user?.uid,
         // username,

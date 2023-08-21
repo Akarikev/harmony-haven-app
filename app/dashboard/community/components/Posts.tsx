@@ -31,7 +31,7 @@ function Posts() {
       setFetchPosts(
         querySnapshot.docs.map((doc) => ({
           ...doc.data(),
-          usersname: localStorage.getItem(usersname),
+          usersname,
         })) as PostTypes[]
       );
 

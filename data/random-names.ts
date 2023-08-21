@@ -128,4 +128,4 @@ var b = [
 var rA = Math.floor(Math.random() * a.length);
 var rB = Math.floor(Math.random() * b.length);
 export var usersname: string = a[rA] + b[rB];
-//localStorage.setItem("tempUser", usersname);
+localStorage.setItem("tempUser", usersname);
