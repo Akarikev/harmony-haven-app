@@ -11,7 +11,7 @@ import TopCards from "@/components/dashboardcomps/TopCards";
 
 function page() {
   return (
-    <div className="font-[inter]">
+    <div className={`font-sans`}>
       <Header />
       <main className="bg-white min-h-screen">
         <TopCards />

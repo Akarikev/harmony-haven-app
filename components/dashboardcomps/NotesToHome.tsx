@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import { toast } from "../ui/use-toast";
 import { ToastAction } from "../ui/toast";
 import { Button } from "../ui/button";
+import { useAuthState } from "react-firebase-hooks/auth";
 import Link from "next/link";
 import {
   signInWithPopup,
@@ -27,7 +28,8 @@ type Notes = {
 function NotesToHome() {
   const [data, setData] = useState<Notes[]>([]);
   const [displayCurrentUserNote, setDisplayCurrentUserNote] = useState(false);
-  const [user, setUser] = useState<any | null>(null); // Store the current user
+  const [user] = useAuthState(auth);
+  // Store the current user
 
   const fetchData = async () => {
     if (!user) {
@@ -37,17 +39,20 @@ function NotesToHome() {
 
     const userUID = user.uid;
 
+    console.log(userUID);
+
     try {
       const querySnapshot = await getDocs(
         query(collection(db, "notes"), where("uid", "==", userUID))
       );
 
-      const newData: Notes[] = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
+      setData(
+        querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
 
-      setData(newData);
+          id: doc.id,
+        })) as Notes[]
+      );
     } catch (error) {
       console.error("Error fetching notes:", error);
     }
@@ -76,16 +81,16 @@ function NotesToHome() {
   useEffect(() => {
     // Fetch data from Firebase on component mount
     // Check if the user is signed in and update the state accordingly
-    const authListener = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-    });
+    // const authListener = onAuthStateChanged(auth, (user) => {
+    //   setUser(user);
+    // });
     fetchData();
-    return () => {
-      // Clean up the auth listener when the component unmounts
-      authListener();
-    };
+    // return () => {
+    //   // Clean up the auth listener when the component unmounts
+    //   authListener();
+    // };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  }, []);
   return (
     <div>
       <h1 className="login_text text-[#0f172a] text-3xl  pl-4">Your Notes</h1>

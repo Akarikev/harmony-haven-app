@@ -10,9 +10,9 @@ function Quotes() {
   const randomQuotes = useRandomQuotes(8);
 
   return (
-    <div className="w-full mt-4 font-[inter]">
+    <div className="w-full mt-4 font-sans">
       <Wrapper suppressHydrationWarning>
-        <h3 className="pl-3 text-xl font-medium mx-auto  text-center  login_text text-[#0f172a] md:text-3xl md:text-bold md:text-start ">
+        <h3 className="pl-3 text-2xl font-medium mx-auto font-sans  text-center   text-[#0f172a] md:text-3xl md:text-bold md:text-start ">
           Motivational Cards 💪
         </h3>
 

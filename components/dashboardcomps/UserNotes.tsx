@@ -59,11 +59,13 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
 
   const fetchData = async () => {
     const querySnapshot = await getDocs(collection(db, "notes"));
-    const newData: Notes[] = querySnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-    setData(newData);
+    setData(
+      querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+
+        id: doc.id,
+      })) as Notes[]
+    );
   };
 
   useEffect(() => {
@@ -95,12 +97,13 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
       await deleteDoc(doc(db, "notes", noteId));
       // Fetch the updated data from Firebase again
       const querySnapshot = await getDocs(collection(db, "notes"));
-      const newData: Notes[] = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
+      setData(
+        querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
 
-      setData(newData);
+          id: doc.id,
+        })) as Notes[]
+      );
     } catch (error) {
       console.error("Error deleting document: ", error);
     }
