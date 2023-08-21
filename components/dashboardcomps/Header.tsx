@@ -5,10 +5,8 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/config/Firestore_d";
 import Image from "next/image";
-import Search from "./SearchComponent";
-import SearchComponent from "./SearchComponent";
+
 import Quotes from "./Quotes";
-import LoginPage from "../LoginPage";
 
 import Link from "next/link";
 

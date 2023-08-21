@@ -1,10 +1,6 @@
-"use client";
-
 import { FC } from "react";
 import { Videos } from "@/data/videos";
-interface GreetTextProps {
-  text: string;
-}
+interface GreetTextProps {}
 
 const GreetText: FC<GreetTextProps> = () => {
   return (
