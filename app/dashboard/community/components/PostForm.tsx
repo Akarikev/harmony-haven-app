@@ -10,12 +10,12 @@ import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { usersname } from "@/data/random-names";
 
 function PostForm() {
   const postRef = collection(db, "community");
   const [user] = useAuthState(auth);
   const [post, setPost] = useState<string>("");
-  let username = localStorage.getItem("tempUser");
 
   const {
     register,
@@ -34,7 +34,7 @@ function PostForm() {
     try {
       await addDoc(postRef, {
         post,
-        username,
+        usersname,
 
         // userId: user?.uid,
         // username,
