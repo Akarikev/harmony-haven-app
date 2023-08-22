@@ -121,12 +121,10 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
 
   return (
     <div className="font-sans " suppressHydrationWarning>
-      {/* map through the data in the docs, then get the id, use that id to delete the data */}
-
       {data.length === 0 ? (
         <div className="font-sans">
-          Youve not recorded anything, Click on New Entry above to begin your
-          amazing journelling journey
+          You haven&apos;t recorded anything. Click on New Entry above to begin
+          your amazing journaling journey.
         </div>
       ) : (
         data
@@ -135,16 +133,18 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
           })
           .map((noteItem) => {
             const isEditing = noteIdToEdit === noteItem.id;
+
+            // You should provide a unique key for each element when mapping over an array.
+            // Consider using a combination of `noteItem.id` and a unique string to ensure uniqueness.
+            // For example: `key={`note-${noteItem.id}`}`
             return (
               <div
-                key={noteItem.id}
-                className="flex flex-col border shadow-md  px-4 py-4 rounded-lg mb-4 lg:ml-32 lg:mr-32"
+                key={noteItem.id} // Add a unique key here
+                className="flex flex-col border shadow-md px-4 py-4 rounded-lg mb-4 lg:ml-32 lg:mr-32"
               >
                 <div className="flex flex-col">
-                  {/* Display the current values */}
                   {isEditing ? (
                     <>
-                      {/* Show input fields when editing */}
                       <Input
                         type="text"
                         value={
@@ -169,9 +169,10 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
                     </>
                   ) : (
                     <div>
-                      {noteItem.title}
-                      {noteItem.text}
-                      {noteItem.created_at}
+                      {/* Display the current values */}
+                      <div>{noteItem.title}</div>
+                      <div>{noteItem.text}</div>
+                      <div>{noteItem.created_at}</div>
                     </div>
                   )}
 
@@ -191,9 +192,9 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
                         </AlertDialogTitle>
                         <AlertDialogDescription>
                           This action cannot be undone. This will permanently
-                          delete your note titled {""}
+                          delete your note titled{" "}
                           <span className="font-medium text-xl">
-                            `{noteItem.title}`
+                            {noteItem.title}
                           </span>
                         </AlertDialogDescription>
                       </AlertDialogHeader>
@@ -208,9 +209,7 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
                     </AlertDialogContent>
                   </AlertDialog>
 
-                  {/* Edit Note Button */}
                   {isEditing ? (
-                    // Save changes button during editing
                     <Button
                       className="w-full md:w-fit lg:w-fit"
                       onClick={() => {
@@ -221,8 +220,7 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
                         ) {
                           editNote(noteItem.id, updatedData);
                         } else {
-                          // Do something or show a message to indicate that no changes were made.
-
+                          // You should provide feedback to the user when no changes were made.
                           toast({
                             title: "No changes made",
                           });
