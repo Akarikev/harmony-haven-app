@@ -85,7 +85,7 @@ function Header() {
               <BiMenuAltRight className="text-[#0a0a81] w-10 h-10 hover:text-white" />
             </PopoverTrigger>
             <PopoverContent>
-              <div className="z-10 flex flex-col w-full space-y-4 ">
+              <div className="z-10 flex flex-col w-full space-y-4  font-sans">
                 <Button variant={"link"}>
                   <Link href="#" className="text-[#0a0a81] ">
                     About
@@ -116,7 +116,7 @@ function Header() {
                   Join Now
                 </Link>
 
-                <p className="flex text-center font-sans items-center text-sm  pr-5 shadow-xl rounded-xl w-fit bg-white/25 italic max-w-3xl p-5 text-gray-600 font-medium">
+                <p className="flex text-center font-sans items-center text-sm  pr-5 shadow-xl w-fit bg-white/25  max-w-3xl p-5 text-gray-600 ">
                   {
                     "By Clicking Login or Join Now means you've accepted our Privacy"
                   }

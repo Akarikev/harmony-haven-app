@@ -34,7 +34,7 @@ export const Videos: videoProps = [
     embed: `https://www.youtube.com/embed/d96akWDnx0w`,
   },
 
-   {
+  {
     id: idVideo,
     embed: `https://www.youtube.com/embed/YPG_6618sWw`,
   },
@@ -58,7 +58,5 @@ export const Videos: videoProps = [
   //   embed: ``,
   // },
 ];
-
-console.log(Videos);
 
 // <iframe width="560" height="315" src="https://www.youtube.com/embed/ga-MniJxQz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
