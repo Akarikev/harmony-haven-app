@@ -1,11 +1,15 @@
 "use client";
 
-import { NotesForm } from "@/components/dashboardcomps/NotesForm";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import UserNotes from "@/components/dashboardcomps/UserNotes";
-import { HomeIcon, MenuIcon, UserIcon } from "lucide-react";
+import React, { useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/config/Firestore_d";
+import Image from "next/image";
+
+import { useRouter } from "next/navigation";
+import { toast } from "@/components/ui/use-toast";
+import { ToastAction } from "@radix-ui/react-toast";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,20 +19,22 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { useRouter } from "next/navigation";
-import { toast } from "@/components/ui/use-toast";
-import { ToastAction } from "@radix-ui/react-toast";
-
 import Link from "next/link";
+import { MenuIcon } from "lucide-react";
 
-function Notes() {
-  // const [user] = useAuthState(auth);
+// interface HeaderProps {}
+
+const Header = () => {
+  const [user] = useAuthState(auth);
+  const userImage = user?.photoURL;
+
+  // eslint-disable-next-line react/jsx-key
+
   const router = useRouter();
-  const [addEntry, setAddEntry] = useState<boolean>(true);
 
-  const auth = getAuth();
+  const authUser = getAuth();
   const signOutUser = () => {
-    signOut(auth)
+    signOut(authUser)
       .then(() => {
         // Sign-out successful.
         router.push("/login");
@@ -42,25 +48,28 @@ function Notes() {
         // An error happened.
       });
   };
-  const onClickable = () => {
-    setAddEntry((prevEntry) => !prevEntry);
-  };
+
+  console.log(user);
   return (
-    <div className="font-sans px-4 mt-4">
-      <div className="flex justify-between flex-1 align-top items-center">
-        <h3 className=" font-extrabold  lg:text-4xl  text-gray-700 mb-3 lg:text-start">
-          📒 Notes and Journel
-        </h3>
+    <div className="">
+      {/* <SearchComponent content={componentsToRender} /> */}
 
-        <Button onClick={onClickable} className="align-top">
-          {addEntry ? " New Entry " : "Close Entry"}
-        </Button>
-
+      {!user ? (
+        <Link href="/login" className="text-gray-700">
+          youre not logged, click here to continue
+        </Link>
+      ) : (
         <DropdownMenu>
-          <DropdownMenuTrigger className="md:hidden">
-            <Button className="align-top">
-              <MenuIcon />
-            </Button>
+          <DropdownMenuTrigger className="md:hidden mt-16">
+            {/* <Image
+              src={`${userImage}`}
+              alt="user image"
+              width={30}
+              height={30}
+              className="object-contain rounded-full h-10 w-10 align-top  md:mt-0 md:ml-2"
+            /> */}
+
+            <MenuIcon />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -92,15 +101,17 @@ function Notes() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      </div>
+      )}
 
-      <h4 className="scroll-m-20 text-sm mb-6 text-muted-foreground tracking-tight lg:text-xl border shadow-md mx-auto rounded-xl w-fit px-2 py-2 bg-white  text-center md:px-4 md:py-4 font-regular md:rounded-xl pb-6">
-        Here you can write down your journey as you grow every day!🤗 At your
-        own pace!🙌
-      </h4>
-      {addEntry && <NotesForm /> ? <UserNotes /> : <NotesForm />}
+      {/* <Image
+        src={`${userImage}`}
+        alt="user image"
+        width={30}
+        height={30}
+        className="object-contain hidden rounded-full h-10 w-10 align-top mt-10 md:mt-0 md:ml-2 md:block"
+      /> */}
     </div>
   );
-}
+};
 
-export default Notes;
+export default Header;

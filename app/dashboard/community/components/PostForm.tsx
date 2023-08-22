@@ -10,6 +10,7 @@ import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { usersname } from "@/data/random-names";
 
 function PostForm() {
   const postRef = collection(db, "community");
@@ -27,11 +28,13 @@ function PostForm() {
   }); //enforcing validations
 
   const createPost = async () => {
+    // let username = usersname;
     // e.preventDefault();
+
     try {
       await addDoc(postRef, {
         post,
-        // username: localStorage.getItem("tempUser"),
+        usersname,
 
         // userId: user?.uid,
         // username,

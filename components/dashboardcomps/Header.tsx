@@ -1,14 +1,26 @@
 "use client";
 
-import React from "react";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import React, { useState } from "react";
+import { getAuth, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/config/Firestore_d";
 import Image from "next/image";
-import Search from "./SearchComponent";
-import SearchComponent from "./SearchComponent";
+
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
+import { toast } from "@/components/ui/use-toast";
+import { ToastAction } from "@radix-ui/react-toast";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
 import Quotes from "./Quotes";
-import LoginPage from "../LoginPage";
 
 import Link from "next/link";
 
@@ -19,7 +31,25 @@ const Header = () => {
   const userImage = user?.photoURL;
 
   // eslint-disable-next-line react/jsx-key
-  const componentsToRender = [<Quotes />];
+
+  const router = useRouter();
+
+  const authUser = getAuth();
+  const signOutUser = () => {
+    signOut(authUser)
+      .then(() => {
+        // Sign-out successful.
+        router.push("/login");
+        toast({
+          title: "Signed Out!",
+          description: `Successfully signedOut🎉`,
+          action: <ToastAction altText="">Done</ToastAction>,
+        });
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
 
   console.log(user);
   return (
@@ -36,14 +66,55 @@ const Header = () => {
           youre not logged, click here to continue
         </Link>
       ) : (
-        <Image
-          src={`${userImage}`}
-          alt="user image"
-          width={30}
-          height={30}
-          className="object-contain rounded-full h-10 w-10 align-top mt-10 md:mt-0 md:ml-2"
-        />
+        <DropdownMenu>
+          <DropdownMenuTrigger className="md:hidden mt-16">
+            <Image
+              src={`${userImage}`}
+              alt="user image"
+              width={30}
+              height={30}
+              className="object-contain rounded-full h-10 w-10 align-top  md:mt-0 md:ml-2"
+            />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem className="font-medium">
+              <Link href="/dashboard/">
+                {/* <HomeIcon width={20} height={20} /> */}
+                Home
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem className="flex gap-x-1 font-medium">
+              <Link href="dashboard/community/" className="font-medium">
+                {/* <CgCommunity width={40} height={40} /> */}
+                Community
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem className="flex gap-x-1 font-medium">
+              <Link href="dashboard/notes/" className="font-medium">
+                {/* <CgCommunity width={40} height={40} /> */}
+                Notes
+              </Link>
+            </DropdownMenuItem>
+
+            <DropdownMenuItem
+              className="text-red-600 font-medium"
+              onClick={signOutUser}
+            >
+              Sign Out
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       )}
+
+      <Image
+        src={`${userImage}`}
+        alt="user image"
+        width={30}
+        height={30}
+        className="object-contain hidden rounded-full h-10 w-10 align-top mt-10 md:mt-0 md:ml-2 md:block"
+      />
     </div>
   );
 };

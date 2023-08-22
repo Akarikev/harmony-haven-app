@@ -34,7 +34,7 @@ const introTextStyle = `${abrilFatFace.className} text-5xl px-3 flex flex-col ju
 
 function Header() {
   return (
-    <header className="-mt-4 ">
+    <header className={`${inter.variable} font-sans -mt-4`}>
       <div className="flex items-center justify-between w-full h-24 p-4 mt-2">
         <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-br from-white/90 to-[#0a0a81] rounded-md filter blur-3xl opacity-50 -z-50 " />
 
@@ -44,7 +44,7 @@ function Header() {
           Harmony Haven
         </h2>
 
-        <div className="hidden space-x-3   md:block font-[inter] lg:block xl:block">
+        <div className="hidden space-x-3   md:block font-sans lg:block xl:block">
           <Button variant={"link"}>
             <Link href="#" className="text-[#0a0a81]">
               About
@@ -62,7 +62,7 @@ function Header() {
           </Button>
         </div>
 
-        <div className="justify-end hidden px-3 space-x-2 md:flex">
+        <div className="justify-end hidden px-3 space-x-2 md:flex font-sans">
           <Link
             className={buttonVariants({ variant: "default" })}
             href="/login"
@@ -79,7 +79,7 @@ function Header() {
         </div>
 
         {/* Mobile Navigations  */}
-        <div className=" md:hidden font-[inter] lg:hidden xl:hidden">
+        <div className=" md:hidden font-sans lg:hidden xl:hidden">
           <Popover>
             <PopoverTrigger>
               <BiMenuAltRight className="text-[#0a0a81] w-10 h-10 hover:text-white" />
@@ -116,7 +116,7 @@ function Header() {
                   Join Now
                 </Link>
 
-                <p className="flex text-center font-[inter] items-center text-sm  pr-5 shadow-xl rounded-xl w-fit bg-white/25 italic max-w-3xl p-5 text-gray-600 font-medium">
+                <p className="flex text-center font-sans items-center text-sm  pr-5 shadow-xl rounded-xl w-fit bg-white/25 italic max-w-3xl p-5 text-gray-600 font-medium">
                   {
                     "By Clicking Login or Join Now means you've accepted our Privacy"
                   }
@@ -136,9 +136,9 @@ function Header() {
           hidden: { opacity: 0, x: -50 },
           visible: { opacity: 1, x: 0 },
         }}
-        className=" bg-white/30 font-[inter] text-gray-500 w-fit flex justify-center items-center rounded-full text-center mx-auto md:mx-auto shadow-md"
+        className=" bg-white/30 font-sans text-gray-500 w-fit flex justify-center items-center rounded-full text-center mx-auto md:mx-auto shadow-md"
       >
-        <p className="px-2 py-3 font-medium text-gray-600 text-small ">
+        <p className="px-2 py-3 font-medium text-gray-600 text-small font-sans">
           {"Making it through life's toughest moments together🎉"}
         </p>
       </motion.div>

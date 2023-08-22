@@ -101,22 +101,18 @@
     @apply border-border;
   }
   body {
-    /* overflow-x: hidden; */
+   
   }
 }
 
-/* Button {
-  font-family: "Inter", sans-serif;
-} */
-/* Im hungry i can eat a cow */
+
 
 Sidebar {
   margin: 0% 10%;
 }
 
 .header_title {
-  /* font-family: "Abril Fatface", cursive; */
-  /* font-family: "CalSans-SemiBold"; */
+
 
   @apply text-blue-700 cursor-pointer md:text-3xl font-sans;
   font-feature-settings: "calt", "rlig";
@@ -129,6 +125,3 @@ Sidebar {
   font-feature-settings: "calt", "rlig";
 }
 
-.login_text {
-  /* font-family: "CalSans-SemiBold"; */
-}

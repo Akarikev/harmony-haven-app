@@ -3,7 +3,7 @@
 import { db } from "@/config/Firestore_d";
 import { getDocs, query, collection, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import Notes from "../../notes/page";
+
 import { usersname } from "@/data/random-names";
 import { Button } from "@/components/ui/button";
 type PostTypes = {
@@ -32,7 +32,6 @@ function Posts() {
         querySnapshot.docs.map((doc) => ({
           ...doc.data(),
           usersname,
-          id: doc.id,
         })) as PostTypes[]
       );
 
