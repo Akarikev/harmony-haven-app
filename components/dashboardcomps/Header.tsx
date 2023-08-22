@@ -68,15 +68,13 @@ const Header = () => {
       ) : (
         <DropdownMenu>
           <DropdownMenuTrigger className="md:hidden mt-16">
-            <Button className="align-top">
-              <Image
-                src={`${userImage}`}
-                alt="user image"
-                width={30}
-                height={30}
-                className="object-contain rounded-full h-10 w-10 align-top  md:mt-0 md:ml-2"
-              />
-            </Button>
+            <Image
+              src={`${userImage}`}
+              alt="user image"
+              width={30}
+              height={30}
+              className="object-contain rounded-full h-10 w-10 align-top  md:mt-0 md:ml-2"
+            />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
