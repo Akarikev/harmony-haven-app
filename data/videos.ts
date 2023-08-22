@@ -19,34 +19,35 @@ export const Videos: videoProps = [
     embed: `https://www.youtube.com/embed/1I9ADpXbD6c`,
   },
 
-  // {
-  //   id: idVideo,
-  //   embed: ``,
-  // },
+  {
+    id: idVideo,
+    embed: `https://www.youtube.com/embed/BXK2ZB2kkcQ`,
+  },
 
-  // {
-  //   id: idVideo,
-  //   embed: ``,
-  // },
+  {
+    id: idVideo,
+    embed: `https://www.youtube.com/embed/CfvYlWG1cA0`,
+  },
 
-  // {
-  //   id: idVideo,
-  //   embed: ``,
-  // },
+  {
+    id: idVideo,
+    embed: `https://www.youtube.com/embed/d96akWDnx0w`,
+  },
 
-  // {
-  //   id: idVideo,
-  //   embed: ``,
-  // },
-  // {
-  //   id: idVideo,
-  //   embed: ``,
-  // },
+   {
+    id: idVideo,
+    embed: `https://www.youtube.com/embed/YPG_6618sWw`,
+  },
 
-  // {
-  //   id: idVideo,
-  //   embed: ``,
-  // },
+  {
+    id: idVideo,
+    embed: `https://www.youtube.com/embed/tBGvOmUhhq4`,
+  },
+
+  {
+    id: idVideo,
+    embed: `https://www.youtube.com/embed/bPZoo8byW98`,
+  },
   // {
   //   id: idVideo,
   //   embed: ``,
