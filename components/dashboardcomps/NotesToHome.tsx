@@ -23,6 +23,7 @@ type Notes = {
   text: string;
   created_at: string;
   mood: string;
+  creatorId: string;
 };
 
 function NotesToHome() {
@@ -31,32 +32,26 @@ function NotesToHome() {
   const [user] = useAuthState(auth);
   // Store the current user
 
+  const USERUID = user?.uid;
+
   const fetchData = async () => {
-    if (!user) {
-      // User is not signed in, do nothing
-      return;
-    }
+    const getDataRef = await getDocs(collection(db, "notes"));
+    const querySnapshot = getDataRef;
+    setData(
+      querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        // creatorId: USERUID,
 
-    const userUID = user.uid;
-
-    console.log(userUID);
-
-    try {
-      const querySnapshot = await getDocs(
-        query(collection(db, "notes"), where("uid", "==", userUID))
-      );
-
-      setData(
-        querySnapshot.docs.map((doc) => ({
-          ...doc.data(),
-
-          id: doc.id,
-        })) as Notes[]
-      );
-    } catch (error) {
-      console.error("Error fetching notes:", error);
-    }
+        id: doc.id,
+      })) as Notes[]
+    );
   };
+
+  useEffect(() => {
+    // Fetch data from Firebase on component mount
+
+    fetchData();
+  }, []);
 
   // const displayUserNote = async () => {
   //   const resShow = await getAuth();
@@ -74,23 +69,6 @@ function NotesToHome() {
     });
   }
 
-  // if() {
-
-  // }
-
-  useEffect(() => {
-    // Fetch data from Firebase on component mount
-    // Check if the user is signed in and update the state accordingly
-    // const authListener = onAuthStateChanged(auth, (user) => {
-    //   setUser(user);
-    // });
-    fetchData();
-    // return () => {
-    //   // Clean up the auth listener when the component unmounts
-    //   authListener();
-    // };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <div>
       <h1 className="login_text text-[#0f172a] text-3xl  pl-4">Your Notes</h1>
@@ -111,26 +89,30 @@ function NotesToHome() {
             </Button>
           </div>
         ) : (
-          data.map((entry) => {
-            return (
-              <div
-                key={entry.id}
-                className="p-4 border rounded-lg shadow-md cursor-pointer hover:bg-red-200 "
-              >
-                <div>
-                  <h1 className="font-medium underline text-zinc-700 underline-offset-2">
-                    Title: {entry.title}
-                  </h1>
-                  <p className="text-sm text-gray-800">{entry.text}</p>
-                  <p>Mood: {entry.mood}</p>
-                  <small className="text-gray-600">
-                    {" "}
-                    created at: {entry.created_at}
-                  </small>
+          data
+            ?.filter((item) => {
+              return item?.creatorId === USERUID;
+            })
+            .map((entry) => {
+              return (
+                <div
+                  key={entry.id}
+                  className="p-4 border rounded-lg shadow-md cursor-pointer hover:bg-red-200 "
+                >
+                  <div>
+                    <h1 className="font-medium underline text-zinc-700 underline-offset-2">
+                      Title: {entry.title}
+                    </h1>
+                    <p className="text-sm text-gray-800">{entry.text}</p>
+                    <p>Mood: {entry.mood}</p>
+                    <small className="text-gray-600">
+                      {" "}
+                      created at: {entry.created_at}
+                    </small>
+                  </div>
                 </div>
-              </div>
-            );
-          })
+              );
+            })
         )}
       </div>
     </div>
