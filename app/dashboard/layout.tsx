@@ -1,3 +1,5 @@
+import Chat from "@/components/Chat";
+import Providers from "@/components/Providers";
 import Sidebar from "@/components/dashboardcomps/Sidebar";
 import { Inter } from "next/font/google";
 
@@ -13,7 +15,13 @@ export default function DashboardLayout({
 }) {
   return (
     <section className={`${inter.variable} font-sans`}>
-      <Sidebar>{children}</Sidebar>
+      <Sidebar>
+        <Providers>
+          <Chat />
+
+          {children}
+        </Providers>
+      </Sidebar>
     </section>
   );
 }
