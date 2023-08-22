@@ -38,8 +38,6 @@ const Meditation: React.FC = () => {
                 src={item.image}
                 alt={item.title}
                 className="w-full object-contain rounded-md"
-                width={100}
-                height={100}
               />
               <h1 className="text-center">{item.title}</h1>
               <audio controls className="  w-40 rounded-lg  ">
