@@ -35,7 +35,7 @@ const Meditation: React.FC = () => {
           return (
             <div key={item.id} className="border shadow-md rounded-md p-2 ">
               <Image
-                src={`${item.image}`}
+                src={item.image}
                 alt={item.title}
                 className="w-full object-contain rounded-md"
                 width={100}
