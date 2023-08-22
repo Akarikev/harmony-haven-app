@@ -14,16 +14,16 @@ export const metadata: Metadata = {
 export default function AuthenticationPage() {
   return (
     <>
-      <div className="md:hidden font-[inter]">
+      <div className="md:hidden font-sans hidden">
         <Image
-          src="/examples/authentication-light.png"
+          src=""
           width={1280}
           height={843}
           alt="Authentication"
           className="block dark:hidden"
         />
         <Image
-          src="/examples/authentication-dark.png"
+          src=""
           width={1280}
           height={843}
           alt="Authentication"

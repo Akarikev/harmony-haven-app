@@ -7,6 +7,11 @@ export const harmonyData = `
 <loc>https://harmony-haven-app.vercel.app/about</loc>
 <desc>An Overview of Harmony Haven/desc>
 </url>
+
+<url>
+<loc>https://harmony-haven-app.vercel.app/gethelp</loc>
+<desc>An Overview of Harmony Haven/desc>
+</url>
 <url>
 <loc>https://harmony-haven-app.vercel.app/services</loc>
 <content>

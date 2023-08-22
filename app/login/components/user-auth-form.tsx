@@ -45,7 +45,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           description: "Successfully logged in!🎉",
           action: <ToastAction altText="Try again">Please wait</ToastAction>,
         });
-        console.log(res.user.uid);
+
         router.push("/dashboard");
       }
     } catch (error) {
@@ -59,9 +59,9 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     }
   };
   return (
-    <div className={cn("grid gap-6 font-[inter]", className)} {...props}>
+    <div className={cn("grid gap-6 font-sans", className)} {...props}>
       <form onSubmit={onSubmit}>
-        <div className="grid gap-2">
+        <div className="grid gap-2 font-sans">
           <div className="grid gap-1">
             <Label className="sr-only" htmlFor="email">
               Email
