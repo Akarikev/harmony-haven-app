@@ -1,9 +1,11 @@
+import Header from "./components/Header";
 import PostForm from "./components/PostForm";
 import Posts from "./components/Posts";
 
 function Community() {
   return (
     <div className="font-sans   p-4">
+      <Header />
       <h1 className="font-medium text-center text-cyan-500 md:text-xl">
         Welcome to Community!
       </h1>
