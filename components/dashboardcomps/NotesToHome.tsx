@@ -81,7 +81,7 @@ function NotesToHome() {
         })} */}
       </div>
       <div className="grid grid-cols-2 gap-2 px-4 md:px-14 lg:px-20 ">
-        {data.length === 0 ? (
+        {data.length == 0 ? (
           <div className="flex flex-col items-center justify-center w-full ">
             <p>No Notes Entry Created please add new one </p>
             <Button variant={"link"}>

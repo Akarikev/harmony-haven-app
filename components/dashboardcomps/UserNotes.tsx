@@ -95,7 +95,7 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
       // Fetch the updated data from Firebase again
       fetchData();
       // Clear the noteIdToEdit and updatedNoteData after editing
-      setNoteIdToEdit(null);
+      setNoteIdToEdit("");
       setUpdatedNoteData({});
     } catch (error) {
       console.error("Error updating document: ", error);
@@ -120,7 +120,7 @@ const UserNotes: FC<UserNotesProps> = ({}) => {
   };
 
   return (
-    <div>
+    <div className="font-sans " suppressHydrationWarning>
       {/* map through the data in the docs, then get the id, use that id to delete the data */}
 
       {data.length === 0 ? (

@@ -1,7 +1,6 @@
 "use client";
 
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "@/config/Firestore_d";
+
 import { NotesForm } from "@/components/dashboardcomps/NotesForm";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -20,14 +19,14 @@ import {
 import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
 import { ToastAction } from "@radix-ui/react-toast";
-import { title } from "process";
+
 import Link from "next/link";
-import { CgCommunity } from "react-icons/cg";
+
 
 function Notes() {
   // const [user] = useAuthState(auth);
   const router = useRouter();
-  const [addEntry, setAddEntry] = useState<boolean>(false);
+  const [addEntry, setAddEntry] = useState<boolean>(true);
 
   const auth = getAuth();
   const signOutUser = () => {
@@ -49,7 +48,7 @@ function Notes() {
     setAddEntry((prevEntry) => !prevEntry);
   };
   return (
-    <div className="font-[inter] px-4 mt-4">
+    <div className="font-sans px-4 mt-4">
       <div className="flex justify-between flex-1 align-top items-center">
         <h3 className=" font-extrabold  lg:text-4xl  text-gray-700 mb-3 lg:text-start">
           📒 Notes and Journel
@@ -101,7 +100,7 @@ function Notes() {
         Here you can write down your journey as you grow every day!🤗 At your
         own pace!🙌
       </h4>
-      {addEntry && <NotesForm /> ? <NotesForm /> : <UserNotes />}
+      {addEntry && <NotesForm />}
     </div>
   );
 }
