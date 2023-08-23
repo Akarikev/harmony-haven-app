@@ -101,19 +101,14 @@
     @apply border-border;
   }
   body {
-   
   }
 }
-
-
 
 Sidebar {
   margin: 0% 10%;
 }
 
 .header_title {
-
-
   @apply text-blue-700 cursor-pointer md:text-3xl font-sans;
   font-feature-settings: "calt", "rlig";
 }
@@ -124,4 +119,3 @@ Sidebar {
 
   font-feature-settings: "calt", "rlig";
 }
-

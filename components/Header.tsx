@@ -46,7 +46,7 @@ function Header() {
 
         <div className="hidden space-x-3   md:block font-sans lg:block xl:block">
           <Button variant={"link"}>
-            <Link href="#" className="text-[#0a0a81]">
+            <Link href="/about" className="text-[#0a0a81]">
               About
             </Link>
           </Button>
@@ -87,7 +87,7 @@ function Header() {
             <PopoverContent>
               <div className="z-10 flex flex-col w-full space-y-4  font-sans">
                 <Button variant={"link"}>
-                  <Link href="#" className="text-[#0a0a81] ">
+                  <Link href="/about" className="text-[#0a0a81] ">
                     About
                   </Link>
                 </Button>

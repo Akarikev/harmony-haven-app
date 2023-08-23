@@ -1,0 +1,9 @@
+body.cooleffect {
+  background: rgb(237, 190, 210);
+  background: radial-gradient(
+    circle,
+    rgba(237, 190, 210, 1) 0%,
+    rgba(255, 254, 254, 1) 100%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
