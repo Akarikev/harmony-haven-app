@@ -41,7 +41,7 @@ function Quotes() {
             return (
               <SplideSlide key={quoteItem.author}>
                 <Card
-                  className="font-[inter] shadow-md  lg:mx-auto lg:block 
+                  className="font-sans shadow-md  lg:mx-auto lg:block 
  "
                 >
                   <blockquote className="text-zinc-700 leading-4 px-2 [&:not(:first-child)]:mt-6">

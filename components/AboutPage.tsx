@@ -8,10 +8,8 @@ const inter = Inter({
 
 const AboutPage = () => {
   return (
-    <body className={`${styles.cooleffect}`} suppressHydrationWarning>
-      <div
-        className={`${inter.variable} font-sans flex flex-col mx-auto px-4 md:px-36 pt-4`}
-      >
+    <div className={`${styles.cooleffect} w-full`} suppressHydrationWarning>
+      <div className={`${inter.variable} font-sans `}>
         <div className=" ">
           <h1 className="text-center uppercase text-xl md:text-3xl font-bold underline">
             Welcome to Harmony Haven:{" "}
@@ -117,7 +115,7 @@ const AboutPage = () => {
           </p>
         </div>
       </div>
-    </body>
+    </div>
   );
 };
 

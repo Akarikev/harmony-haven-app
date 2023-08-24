@@ -47,6 +47,7 @@
     "next-themes": "^0.2.1",
     "node-fetch": "^3.3.1",
     "postcss": "8.4.24",
+    "re-use-online": "^1.0.2",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",

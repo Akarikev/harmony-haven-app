@@ -61,7 +61,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   return (
     <div className={cn("grid gap-6 font-sans", className)} {...props}>
       <form onSubmit={onSubmit}>
-        <div className="grid gap-2 font-sans">
+        {/* <div className="grid gap-2 font-sans">
           <div className="grid gap-1">
             <Label className="sr-only" htmlFor="email">
               Email
@@ -82,7 +82,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
             )}
             Sign In with Email
           </Button>
-        </div>
+        </div> */}
       </form>
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
