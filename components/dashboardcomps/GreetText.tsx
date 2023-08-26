@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Videos } from "@/data/videos";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import styled from "styled-components";
 interface GreetTextProps {}
 
 const GreetText: FC<GreetTextProps> = () => {
@@ -15,7 +16,7 @@ const GreetText: FC<GreetTextProps> = () => {
           arrows: false,
           pagination: false,
           drag: "free",
-          gap: "5rem",
+
           autoplay: true,
           rewind: true,
           type: "loop",
@@ -23,7 +24,6 @@ const GreetText: FC<GreetTextProps> = () => {
             640: {
               perPage: 1,
               width: 600,
-              gap: "2rem",
             },
           },
         }}
@@ -32,13 +32,13 @@ const GreetText: FC<GreetTextProps> = () => {
         {Videos.map((item) => {
           return (
             <SplideSlide key={item.id}>
-              <div className=" px-9">
+              <Card>
                 <iframe
                   src={item.embed}
                   allowFullScreen
-                  className="rounded-md shadow-lg md:w-[350px] w-[200px] h-[200px]"
+                  className="md:w-[500px] rounded-md h-[200px]"
                 ></iframe>
-              </div>
+              </Card>
             </SplideSlide>
           );
         })}
@@ -46,5 +46,11 @@ const GreetText: FC<GreetTextProps> = () => {
     </div>
   );
 };
+
+const Card = styled.div`
+  min-height: 20rem;
+
+  overflow: hidden;
+`;
 
 export default GreetText;
