@@ -36,7 +36,7 @@ const GreetText: FC<GreetTextProps> = () => {
                 <iframe
                   src={item.embed}
                   allowFullScreen
-                  className="md:w-[500px] rounded-md h-[200px]"
+                  className="md:w-[500px] rounded-md first-letter:ml-6 h-[200px]"
                 ></iframe>
               </Card>
             </SplideSlide>

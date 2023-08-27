@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useState } from "react";
@@ -108,7 +109,7 @@ const Header = () => {
         </DropdownMenu>
       )}
 
-      <Image
+      <img
         src={`${userImage}`}
         alt="user image"
         width={30}
