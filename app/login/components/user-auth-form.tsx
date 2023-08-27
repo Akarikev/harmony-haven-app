@@ -20,8 +20,6 @@ import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@radix-ui/react-toast";
 import { useRouter } from "next/navigation";
 import { auth, provider } from "@/config/Firestore_d";
-import { blob } from "node:stream/consumers";
-import { useEffect } from "react";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -114,6 +112,12 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         const email = error.customData.email;
         // The AuthCredential type that was used.
         const credential = FacebookAuthProvider.credentialFromError(error);
+        toast({
+          variant: "destructive",
+
+          description: `${errorMessage}`,
+          action: <ToastAction altText="Try again">Try Again</ToastAction>,
+        });
 
         console.log(
           "Error Message :",
