@@ -20,6 +20,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@radix-ui/react-toast";
 import { useRouter } from "next/navigation";
 import { auth, provider } from "@/config/Firestore_d";
+import { FacebookIcon } from "lucide-react";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -90,8 +91,6 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
             description: "Successfully logged in!🎉",
             action: <ToastAction altText="Try again">Please wait</ToastAction>,
           });
-
-          
         }
 
         if (!user) {
@@ -182,7 +181,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         {isLoading ? (
           <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
         ) : (
-          <Icons.gitHub className="mr-2 h-4 w-4" />
+          <FacebookIcon className="mr-2 h-4 w-4" />
         )}{" "}
         Facebook
       </Button>

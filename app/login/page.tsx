@@ -75,7 +75,9 @@ export default function AuthenticationPage() {
               </h1>
               <p className="text-sm text-muted-foreground ">
                 Click to Login with Gmail or Facebook
-                <br />
+              </p>
+
+              <p className="text-xs text-muted-foreground border rounded-md p-3 shadow-md">
                 For Facebook Login, facebook might revoke your access to login,
                 if that is the case please login with your GMAIL ACCOUNT. Rest
                 Assured we are working hard to fix this. Apologies for the
