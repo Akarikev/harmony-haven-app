@@ -74,7 +74,12 @@ export default function AuthenticationPage() {
                 Create an account
               </h1>
               <p className="text-sm text-muted-foreground ">
-                Enter your email below to create your account
+                Click to Login with Gmail or Facebook
+                <br />
+                For Facebook Login, facebook might revoke your access to login,
+                if that is the case please login with your GMAIL ACCOUNT. Rest
+                Assured we are working hard to fix this. Apologies for the
+                inconvinience.
               </p>
             </div>
             <UserAuthForm />

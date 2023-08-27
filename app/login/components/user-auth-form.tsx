@@ -82,6 +82,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         fetch(
           `https://graph.facebook.com/${result.user.providerData[0].uid}/picture?type=large&access_token=${accessToken}`
         );
+        router.push("/dashboard");
 
         if (user) {
           toast({
@@ -90,7 +91,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
             action: <ToastAction altText="Try again">Please wait</ToastAction>,
           });
 
-          router.push("/dashboard");
+          
         }
 
         if (!user) {
