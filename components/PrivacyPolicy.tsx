@@ -16,7 +16,7 @@ function PrivacyPolicy() {
         </h1>
 
         <h3 className="text-center text-muted-foreground">
-          Effective Date: 28/07/23
+          Effective Date: 29/07/23
         </h3>
 
         <div>
