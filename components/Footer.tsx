@@ -1,6 +1,8 @@
 import React from "react";
 import { Inter } from "next/font/google";
 import { FacebookIcon, TwitterIcon } from "lucide-react";
+import { Button } from "./ui/button";
+import Link from "next/link";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -40,6 +42,11 @@ const Footer = () => {
           &copy; 2023 Harmony Haven. A final year Project. All rights reserved.
           Made in Ghana.
         </p>
+        <Link href={"/privacy-policy"} className="mt-4 text-white">
+          <Button variant={"link"} className="text-white">
+            Privacy Policy & Terms
+          </Button>
+        </Link>
       </div>
     </footer>
   );
