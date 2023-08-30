@@ -51,12 +51,12 @@ function Header() {
             </Link>
           </Button>
           <Button variant={"link"}>
-            <Link href="#" className="text-[#0a0a81]">
+            <Link href="/gethelp" className="text-[#0a0a81]">
               Get Help
             </Link>
           </Button>
           <Button variant={"link"}>
-            <Link href="#" className="text-[#0a0a81]">
+            <Link href="/services" className="text-[#0a0a81]">
               Services
             </Link>
           </Button>
@@ -92,12 +92,12 @@ function Header() {
                   </Link>
                 </Button>
                 <Button variant={"link"}>
-                  <Link href="#" className="text-[#0a0a81] ">
+                  <Link href="/gethelp" className="text-[#0a0a81] ">
                     Get Help
                   </Link>
                 </Button>
                 <Button variant={"link"}>
-                  <Link href="#" className="text-[#0a0a81] ">
+                  <Link href="/services" className="text-[#0a0a81] ">
                     Services
                   </Link>
                 </Button>
