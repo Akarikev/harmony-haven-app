@@ -164,23 +164,20 @@ function Services() {
               <p className="italic">
                 &quot;My Life wasn&apos;t a good one, i judge myself too often.
                 I had a lot of imposter syndrome. When i was introduced to
-                harmony haven, i completely began to take my life serious and
+                harmony haven, i completely began to take my life seriously and
                 happy about who i am now&quot;
               </p>
 
-              <small className="text-right "> - Amon Daniel, UCC Student</small>
+              <small className="text-right "> - Anonymous user</small>
 
               <p className="mt-4 italic">
-                &quot;I always panick on the littlest things, I had fears, and
+                &quot;I always panic on the littlest things, I had fears, and
                 doubt, but when i found harmony haven, it saved me, i took the
                 meditation exercises and wrote down my journey as i grow, now i
                 am satisfied with my life. &quot;
               </p>
 
-              <small className="text-center pt-1">
-                {" "}
-                - Elijah Mottey, UCC Student
-              </small>
+              <small className="text-center pt-1"> - Anonymous user</small>
             </blockquote>
 
             {/* <Link href={"/login"} className="text-center">
