@@ -72,14 +72,14 @@ function GetHelp() {
             </TableBody>
           </Table>
         </div>
+      </div>
 
-        <div className="flex justify-center items-center mt-6 h-[800px] shadow-md mb-6">
-          <iframe
-            src="https://ghs.gov.gh/contact/"
-            title="Ghana Health Service Contact Page"
-            className="w-full rounded-md h-full"
-          ></iframe>
-        </div>
+      <div className="flex px-2 justify-center items-center mt-6 h-[800px] shadow-md mb-6">
+        <iframe
+          src="https://ghs.gov.gh/contact/"
+          title="Ghana Health Service Contact Page"
+          className="w-full rounded-md h-full"
+        ></iframe>
       </div>
 
       <Footer />
