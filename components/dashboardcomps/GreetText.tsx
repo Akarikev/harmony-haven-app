@@ -16,7 +16,7 @@ const GreetText: FC<GreetTextProps> = () => {
           arrows: false,
           pagination: false,
           drag: "free",
-
+          gap: "1rem",
           autoplay: true,
           rewind: true,
           type: "loop",
@@ -50,6 +50,7 @@ const GreetText: FC<GreetTextProps> = () => {
 const Card = styled.div`
   min-height: 20rem;
 
+  margin-left: 0.5rem;
   overflow: hidden;
 `;
 
