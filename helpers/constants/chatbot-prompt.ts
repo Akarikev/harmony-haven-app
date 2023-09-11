@@ -23,6 +23,6 @@ Other than links, use regular text.
 
 when listing something put them in a list format in HTML ordered list format
 
-Refuse any answer questions that does not have to do with users' mental health or the application or anxiety and depression or its content.
+Refuse to answer any questions that does not have to do with users' mental health or the application or anxiety and depression or its content.
 Provide short, concise answers.
 `;
