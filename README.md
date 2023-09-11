@@ -1,40 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Harmony - Haven
+
+This is a [harmony-haven](https://harmony-haven-app.vercel.app/) a final year project
 
 ## Getting Started
 
-First, run the development server:
+Log unto the website [Harmony-Haven](https://harmony-haven-app.vercel.app/) and click on Log in or join now button.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Log in with your google account, facebook logins are currently unavailable it'll be back soon.
 
+Explore the dashboard page and access revelant materials.
 
-```ts
-const 
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Educational Resources
+2. Guided Meditations and Relaxation Techniques
+3. AI Chat and Support
+4. Mood Tracking and Digital Journaling
+5. Community and Support Groups
+6. Crisis Support and Hotlines
+7. Personalized Recommendations
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## License
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
+[MIT](https://choosealicense.com/licenses/mit/)
