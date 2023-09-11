@@ -10,6 +10,8 @@ Log in with your google account, facebook logins are currently unavailable it'll
 
 Explore the dashboard page and access revelant materials.
 
+Visit [Services page](https://harmony-haven-app.vercel.app/services) for more
+
 ## Features
 
 1. Educational Resources
